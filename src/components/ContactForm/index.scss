@@ -1,0 +1,79 @@
+.contact-form {
+  background: linear-gradient(
+    30deg,
+    var(--salmon-secondary),
+    rgba(0, 0, 255, 0) 70.71%
+  );
+  padding: 2em 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  &__container {
+    box-shadow: inset 0 1px 12px 0 rgba(124, 102, 101, 0.37);
+  }
+  &__title {
+    font-size: 5em;
+    font-family: "UtopiaRegular";
+    border-bottom: 1px solid var(--salmon-secondary);
+  }
+  &__input {
+    border-bottom: 1px solid var(--salmon-secondary);
+    background: none;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+    background-size: 30%;
+    text-align: center;
+    resize: none;
+    min-height: 5em;
+    width: 100%;
+    font-size: 1.5em;
+    padding: 2em;
+  }
+  &__media-container {
+    display: flex;
+    flex: content;
+  }
+  &__whatsapp,
+  &__facebook,
+  &__gmail,
+  &__email {
+    margin: 0.5em;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 3rem;
+    border-radius: 45px;
+    i {
+      padding: 1rem;
+      border-radius: 45px;
+    }
+    :hover {
+      transform: translateY(-10px) translateZ(10px);
+    }
+  }
+  &__whatsapp {
+    color: #25d366;
+  }
+  &__facebook {
+    color: #3b5998;
+  }
+  &__gmail {
+    color: #ea4335;
+  }
+  &__email {
+    color: #d32599;
+  }
+  &__button {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border-radius: 20px;
+    padding: 2em 1.5em;
+    font-size: 1.5em;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    color: #ffff;
+  }
+}
