@@ -2,9 +2,9 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Heading from "../components/Heading";
 import ContactForm from "../components/ContactForm";
-import About from "../components/About";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
+import About from "../components/About";
 import { useScroll } from "../hooks/useScroll";
 import { menu } from "../resources";
 import { Helmet } from "react-helmet";
@@ -16,10 +16,10 @@ const IndexPage = () => {
   const scroll = useScroll();
   const [index, setIndex] = useState(0);
   useEffect(() => {
-    scroll.y > 0 && index < 10 && setIndex(index + 1);
-  }, [scroll, index]);
+    scroll.y > 0 && index < 20 && setIndex((i) => i + 1);
+  }, [scroll]);
   return (
-    <main className="main  w-screen h-screen flex-wrap">
+    <main className="main flex-wrap">
       <title>Private Chef Catania</title>
       <Helmet>
         <link
@@ -29,8 +29,8 @@ const IndexPage = () => {
           crossorigin="anonymous"
         />
       </Helmet>
-      {index <= 5 && <Heading />}
-      {index > 5 && (
+      {index <= 10 && <Heading index={index} />}
+      {index > 10 && (
         <div className="main__container grid">
           <Menu menu={menu} />
           <ContactForm />

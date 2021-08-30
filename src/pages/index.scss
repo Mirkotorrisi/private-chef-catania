@@ -5,7 +5,7 @@
   src: url("../../public/static/fonts/UtopiaStd-Regular.otf") format("opentype");
 }
 * {
-  max-width: 100vw;
+  max-width: 99vw;
 }
 body,
 html,
@@ -13,11 +13,11 @@ main {
   font-family: "Raleway", sans-serif;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
   &__container {
     flex-direction: column;
     display: flex;
-    width: 100vw;
+    width: 80vw;
+    overflow: hidden;
   }
 }
 
@@ -25,6 +25,4 @@ main {
   .main__container {
     flex-direction: row;
   }
-}
-@media (min-width: 1440) {
 }
