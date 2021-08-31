@@ -39,6 +39,7 @@
   &__media-container {
     display: flex;
     flex: content;
+    flex-wrap: wrap;
   }
   &__whatsapp,
   &__facebook,
@@ -81,6 +82,14 @@
     display: flex;
     justify-content: space-between;
     color: #ffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    &__input {
+      min-height: 10em;
+    }
   }
 }
 /* ----------------------------------------------

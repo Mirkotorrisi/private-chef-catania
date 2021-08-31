@@ -75,5 +75,9 @@
 @media (max-width: 767px) {
   .menu {
     overflow-x: hidden;
+    &__title {
+      background-image: url(../../../public/images/salmon_white.png);
+      background-size: 30%;
+    }
   }
 }

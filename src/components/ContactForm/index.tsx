@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useRef, useState } from "react";
 import { PHONE_NUMBER } from "../../resources/index";
-import LogoWhite from "../../../public/static/svg/logowhite_notext.svg";
 import "./index.scss";
 import { useEffect } from "react";
 
@@ -20,7 +19,7 @@ const ContactForm = () => {
   }, [ref.current?.getBoundingClientRect().top]);
 
   return (
-    <div className="contact-form mt-44 pb-44" ref={ref}>
+    <div className="contact-form lg:mt-44 pb-44" ref={ref}>
       <div
         className={showContact ? "contact-form__animation" : ""}
         style={{ visibility: showContact ? "visible" : "hidden" }}

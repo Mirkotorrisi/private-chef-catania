@@ -1,14 +1,11 @@
 import * as React from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { MenuItem } from "./MenuItem/index";
-import Lemon from "../../svg/lemon_bg.svg";
 import "./index.scss";
 import { MenuProps } from "./consts";
-import useWindowSize from "../../hooks/useWindowSize";
 import FlipMenuItem from "./FlipMenuItem/index";
 
 const Menu = ({ menu }: MenuProps) => {
-  const { innerWidth } = useWindowSize();
   const bgArray = ["lemon_bg", "onion_bg", "salmon_bg"];
   const menuItemsMemo = useMemo(
     () =>
@@ -16,7 +13,7 @@ const Menu = ({ menu }: MenuProps) => {
         <>
           <h2 className="menu__section__title">{section}</h2>
           {menuItems.map((menuItem: any, index: number) =>
-            innerWidth >= 720 ? (
+            window.innerWidth >= 720 ? (
               <MenuItem menuItem={menuItem} backgroundImage={bgArray[index]} />
             ) : (
               <FlipMenuItem
