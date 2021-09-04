@@ -32,7 +32,7 @@ const IndexPage = () => {
       {index <= 10 && <Heading index={index} />}
       {index > 10 && (
         <div className="main__container grid">
-          {/* <Menu menu={menu} /> */}
+          <Menu menu={menu} />
           <ContactForm />
           <About />
           <Footer />
