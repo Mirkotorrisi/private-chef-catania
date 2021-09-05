@@ -10,13 +10,13 @@ const ContactForm = () => {
   );
   const handleChange = (e: any) => setMessage(e.target.value);
   const ref = useRef<HTMLDivElement>(null);
-  const [showContact, setShowContact] = useState(false);
+  const [showContact, setShowContact] = useState(true);
 
-  useEffect(() => {
-    ref.current &&
-      ref.current.getBoundingClientRect().top < window.innerHeight &&
-      setShowContact(true);
-  }, [ref.current?.getBoundingClientRect().top]);
+  // useEffect(() => {
+  //   ref.current &&
+  //     ref.current.getBoundingClientRect().top < window.innerHeight &&
+  //     setShowContact(true);
+  // }, [ref.current?.getBoundingClientRect().top]);
 
   return (
     <div className="contact-form lg:mt-44 pb-44" ref={ref}>
