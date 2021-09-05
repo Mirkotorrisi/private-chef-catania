@@ -6,7 +6,7 @@ const FlipMenuItem = ({
   backgroundImage,
 }: MenuItemProps) => {
   return (
-    <div className="flip-card my-5">
+    <div className="flip-card my-5" style={{ transform: "rotateX(180deg)" }}>
       <div className="flip-card__inner">
         <div
           className="flip-card__front"
