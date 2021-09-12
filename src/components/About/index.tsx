@@ -5,11 +5,11 @@ import { useState } from "react";
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [showAbout, setShowAbout] = useState(true);
-  // useEffect(() => {
-  //   ref.current &&
-  //     ref.current.getBoundingClientRect().top < window.innerHeight * 0.7 &&
-  //     setShowAbout(true);
-  // }, [ref.current?.getBoundingClientRect().top]);
+  useEffect(() => {
+    ref.current &&
+      ref.current.getBoundingClientRect().top < window.innerHeight * 0.7 &&
+      setShowAbout(true);
+  }, [ref.current?.getBoundingClientRect().top]);
 
   return (
     <div className="about pb-44" ref={ref}>
