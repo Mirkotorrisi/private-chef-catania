@@ -14,15 +14,19 @@ const ContactForm = () => {
 
   useEffect(() => {
     ref.current &&
-      ref.current.getBoundingClientRect().top < window.innerHeight &&
-      setShowContact(true);
+    ref.current.getBoundingClientRect().top < window.innerHeight / 2
+      ? setShowContact(true)
+      : setShowContact(false);
   }, [ref.current?.getBoundingClientRect().top]);
 
   return (
     <div className="contact-form lg:mt-44 pb-44" ref={ref}>
       <div
-        className={showContact ? "contact-form__animation" : ""}
-        style={{ visibility: showContact ? "visible" : "hidden" }}
+        className={
+          showContact
+            ? "contact-form__animation_in"
+            : "contact-form__animation_out"
+        }
       >
         <h1 className="contact-form__title mt-20 mb-20">Contact</h1>
         <div className="contact-form__container">

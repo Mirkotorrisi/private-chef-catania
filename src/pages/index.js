@@ -14,10 +14,12 @@ import "../styles/colors.scss";
 // markup
 const IndexPage = () => {
   const scroll = useScroll();
-  const [index, setIndex] = useState(0);
+  const [background, setbackground] = useState("#FFFFFF");
+  const windowHeight = typeof window !== "undefined" && window.innerHeight;
   useEffect(() => {
-    scroll.y > 0 && index < 20 && setIndex((i) => i + 1);
+    scroll > windowHeight * 3 && setbackground("#f4ea6b");
   }, [scroll]);
+
   return (
     <main className="main flex-wrap">
       <title>Private Chef Catania</title>
@@ -29,15 +31,13 @@ const IndexPage = () => {
           crossorigin="anonymous"
         />
       </Helmet>
-      {index <= 10 && <Heading index={index} />}
-      {index > 10 && (
-        <div className="main__container grid">
-          <Menu menu={menu} />
-          <ContactForm />
-          <About />
-          <Footer />
-        </div>
-      )}
+      <Heading index={scroll} />
+      <div className="main__container grid" style={{ background }}>
+        <Menu menu={menu} />
+        <ContactForm />
+        <About />
+        <Footer />
+      </div>
     </main>
   );
 };

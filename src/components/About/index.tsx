@@ -7,15 +7,15 @@ const About = () => {
   const [showAbout, setShowAbout] = useState(true);
   useEffect(() => {
     ref.current &&
-      ref.current.getBoundingClientRect().top < window.innerHeight * 0.7 &&
-      setShowAbout(true);
+    ref.current.getBoundingClientRect().top < window.innerHeight / 2
+      ? setShowAbout(true)
+      : setShowAbout(false);
   }, [ref.current?.getBoundingClientRect().top]);
 
   return (
     <div className="about pb-44" ref={ref}>
       <div
-        className={showAbout ? "about__animation" : ""}
-        style={{ visibility: showAbout ? "visible" : "hidden" }}
+        className={showAbout ? "about__animation_in" : "about__animation_out"}
       >
         <h1 className="about__title mt-20 mb-20">About</h1>
         <div className="about__container">

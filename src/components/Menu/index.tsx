@@ -7,13 +7,14 @@ import FlipMenuItem from "./FlipMenuItem/index";
 
 const Menu = ({ menu }: MenuProps) => {
   const bgArray = ["lemon_bg", "onion_bg", "salmon_bg"];
+  const innerWidth = typeof window !== "undefined" && window.innerWidth;
   const menuItemsMemo = useMemo(
     () =>
       Object.entries(menu).map(([section, menuItems]) => (
         <>
           <h2 className="menu__section__title">{section}</h2>
           {menuItems.map((menuItem: any, index: number) =>
-            window.innerWidth >= 720 ? (
+            innerWidth >= 720 ? (
               <MenuItem menuItem={menuItem} backgroundImage={bgArray[index]} />
             ) : (
               <FlipMenuItem

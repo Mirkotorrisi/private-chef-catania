@@ -15,7 +15,9 @@
   &__title {
     font-size: 4em;
     font-weight: 700;
+    color: #fff;
     font-family: "UtopiaRegular";
+    mix-blend-mode: exclusion;
     width: 100%;
     padding: 1.5rem;
     background-image: url(../../../public/images/salmon_bg.jpg);
@@ -24,6 +26,9 @@
   }
   &__section__title {
     color: var(--salmon-primary);
+    background-clip: text;
+    background-color: transparent;
+    mix-blend-mode: exclusion;
     font-size: 3.5em;
     font-weight: 500;
     padding-left: 0.5em;

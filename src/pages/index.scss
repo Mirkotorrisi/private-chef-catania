@@ -10,14 +10,17 @@
 body,
 html,
 main {
+  background-color: #fff;
   font-family: "Raleway", sans-serif;
   padding: 0;
   margin: 0;
   &__container {
+    transition: all 1.5s;
     flex-direction: column;
     display: flex;
     width: 80vw;
     overflow: hidden;
+    z-index: 10;
   }
 }
 
