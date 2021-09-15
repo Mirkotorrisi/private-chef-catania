@@ -1,9 +1,17 @@
 .about {
   transition: all 5s;
-  background: linear-gradient(20deg, var(--onion-primary), transparent 50.71%);
+  background: rgb(2, 0, 36);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    10deg,
+    rgba(2, 0, 36, 0) 2%,
+    rgba(9, 9, 121, 0) 1%,
+    rgba(255, 255, 255, 1) 32%
+  );
   display: grid;
   place-items: center;
   z-index: 2;
+  animation: background-anim 6s alternate infinite;
   &__animation_in {
     -webkit-animation: fade-in-tr 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
     animation: fade-in-tr 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -66,5 +74,17 @@
     -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
     opacity: 1;
+  }
+}
+@keyframes background-anim {
+  0% {
+    background-color: var(--onion-primary);
+  }
+
+  50% {
+    background-color: var(--salmon-primary);
+  }
+  100% {
+    background-color: var(--lemon-primary);
   }
 }

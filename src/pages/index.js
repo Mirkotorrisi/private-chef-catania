@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import Heading from "../components/Heading";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
@@ -14,11 +13,6 @@ import "../styles/colors.scss";
 // markup
 const IndexPage = () => {
   const scroll = useScroll();
-  const [background, setbackground] = useState("#FFFFFF");
-  const windowHeight = typeof window !== "undefined" && window.innerHeight;
-  useEffect(() => {
-    scroll > windowHeight * 3 && setbackground("#f4ea6b");
-  }, [scroll]);
 
   return (
     <main className="main flex-wrap">
@@ -32,7 +26,7 @@ const IndexPage = () => {
         />
       </Helmet>
       <Heading index={scroll} />
-      <div className="main__container grid" style={{ background }}>
+      <div className="main__container grid">
         <Menu menu={menu} />
         <ContactForm />
         <About />

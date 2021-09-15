@@ -6,7 +6,7 @@ import Logo from "/public/static/svg/logo_color_bg_1.svg";
 let opacity: number;
 const Heading = ({ index }: { index: number }) => {
   useEffect(() => {
-    (opacity = window.innerHeight / index), [];
+    (opacity = window.innerHeight / index - 0.3), [];
   });
   const resources = [
     "basket",

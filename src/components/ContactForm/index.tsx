@@ -5,9 +5,7 @@ import "./index.scss";
 import { useEffect } from "react";
 
 const ContactForm = () => {
-  const [message, setMessage] = useState(
-    "Buona sera, gradirei avere maggiori informazioni su questo servizio."
-  );
+  const [message, setMessage] = useState("");
   const handleChange = (e: any) => setMessage(e.target.value);
   const ref = useRef<HTMLDivElement>(null);
   const [showContact, setShowContact] = useState(true);
@@ -32,6 +30,7 @@ const ContactForm = () => {
         <div className="contact-form__container">
           <textarea
             id="contact"
+            placeholder="Buonasera, gradirei avere maggiori informazioni..."
             value={message}
             onChange={handleChange}
             className="contact-form__input"
