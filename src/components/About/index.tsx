@@ -19,7 +19,7 @@ const About = () => {
       >
         <h1 className="about__title mt-20 mb-20">About</h1>
         <div className="about__container">
-          <p className="about__bio">
+          <p className="about__bio p-22 p-0:lg">
             <img
               src="../../../images/fusione.png"
               alt="fabio simone"

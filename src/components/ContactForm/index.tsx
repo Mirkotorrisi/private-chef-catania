@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 const ContactForm = () => {
   const [message, setMessage] = useState("");
+  const [href, setHref] = useState<string>();
   const handleChange = (e: any) => setMessage(e.target.value);
   const ref = useRef<HTMLDivElement>(null);
   const [showContact, setShowContact] = useState(true);
@@ -17,8 +18,19 @@ const ContactForm = () => {
       : setShowContact(false);
   }, [ref.current?.getBoundingClientRect().top]);
 
+  const contactHref = {
+    facebook: "http://m.me/PrivateChefCatania?text=" + message,
+    google:
+      "https://mail.google.com/mail/?view=cm&fs=1&to=info@privatechefcatania.com&su=Private Chef Info Request&body=" +
+      message,
+    envelope:
+      "mailto:info@privatechefcatania.com?subject=Private Chef Info Request&body=" +
+      message,
+    whatsapp: "https://wa.me/+39" + PHONE_NUMBER + "/?text=" + message,
+  };
+
   return (
-    <div className="contact-form lg:mt-44 pb-44" ref={ref}>
+    <div className="contact-form lg:mt-22 pb-22" ref={ref}>
       <div
         className={
           showContact
@@ -30,45 +42,34 @@ const ContactForm = () => {
         <div className="contact-form__container">
           <textarea
             id="contact"
-            placeholder="Buonasera, gradirei avere maggiori informazioni..."
+            placeholder="Scrivimi qualcosa..."
             value={message}
             onChange={handleChange}
             className="contact-form__input"
           />
+          <h1 className="contact-form__select-label">Scrivimi su:</h1>
 
-          <div className="contact-form__media-container">
-            <a
-              href={"https://wa.me/+39" + PHONE_NUMBER + "/?text=" + message}
-              className="contact-form__whatsapp"
-            >
-              <i className="fab fa-whatsapp" />
-            </a>
-            <a
-              href={"http://m.me/PrivateChefCatania?text=" + message}
-              className="contact-form__facebook"
-            >
-              <i className="fab fa-facebook" />
-            </a>
-            <a
-              href={
-                "https://mail.google.com/mail/?view=cm&fs=1&to=info@privatechefcatania.com&su=Private Chef Info Request&body=" +
-                message
-              }
-              className="contact-form__gmail"
-            >
-              <i className="fab fa-google" />
-            </a>
-            <a
-              href={
-                "mailto:info@privatechefcatania.com?subject=Private Chef Info Request&body=" +
-                message
-              }
-              className="contact-form__email"
-            >
-              <i className="far fa-envelope"></i>
-            </a>
-          </div>
+          <ul>
+            {Object.keys(contactHref).map((key) => (
+              <div className={key + (href === key ? " active" : "")}>
+                <li onClick={() => setHref(key)} className={key}>
+                  <button className={key + (href === key ? "_active" : "")}>
+                    <i
+                      className={
+                        (key === "envelope" ? "far" : "fab") + " fa-" + key
+                      }
+                    />
+                  </button>
+                </li>
+              </div>
+            ))}
+          </ul>
         </div>
+        <button className="cta">
+          <a href={href ? contactHref[href] : ""} className={href}>
+            Contattami
+          </a>
+        </button>
       </div>
     </div>
   );

@@ -1,9 +1,7 @@
 import React from "react";
-import { MenuItemProps } from "../consts";
+import { MenuItemI } from "../consts";
 import "./index.scss";
-const FlipMenuItem = ({
-  menuItem: { image, name, description },
-}: MenuItemProps) => {
+const FlipMenuItem = ({ image, name, description }: MenuItemI) => {
   return (
     <div className="flip-card my-5" style={{ transform: "rotateX(180deg)" }}>
       <div className="flip-card__inner">

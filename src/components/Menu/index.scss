@@ -12,6 +12,7 @@
 .menu {
   list-style: none;
   border-top: 1px solid var(--salmon-primary);
+  border-radius: 8px;
   &__title {
     font-size: 4em;
     font-weight: 700;
@@ -20,9 +21,6 @@
     mix-blend-mode: exclusion;
     width: 100%;
     padding: 1.5rem;
-    background-image: url(../../../public/images/salmon_bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center right;
   }
   &__section__title {
     color: var(--salmon-primary);
@@ -34,7 +32,6 @@
     padding-left: 0.5em;
   }
   &__container {
-    max-width: 1000px;
     z-index: 5;
     margin: auto;
   }

@@ -40,6 +40,22 @@ const Heading = ({ index }: { index: number }) => {
         className="header__wrapper w-screen h-screen"
         style={{ overflow: "hidden", position: "fixed" }}
       >
+        <nav className="menu navbar">
+          <ul className="navbar__list">
+            <li>
+              <a href="#menu">Menu</a>
+            </li>
+            <li>
+              <a href="#menu">Contact</a>
+            </li>
+            <li>
+              <a href="#menu">About me</a>
+            </li>
+            <li>
+              <a href="#menu">Reviews</a>
+            </li>
+          </ul>
+        </nav>
         <Logo
           style={{
             width: "50%",

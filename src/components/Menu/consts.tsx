@@ -6,15 +6,5 @@ export interface MenuItemI {
 
 export interface MenuProps {
   background: string;
-  menu: {
-    appetizer: MenuItemI[];
-    antipasti: MenuItemI[];
-    primi: MenuItemI[];
-    secondi: MenuItemI[];
-  };
-}
-
-export interface MenuItemProps {
-  menuItem: MenuItemI;
-  backgroundImage: string;
+  menu: MenuItemI[];
 }

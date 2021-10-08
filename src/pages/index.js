@@ -26,7 +26,7 @@ const IndexPage = () => {
         />
       </Helmet>
       <Heading index={scroll} />
-      <div className="main__container grid">
+      <div className="main__container lg:px-60">
         <Menu menu={menu} />
         <ContactForm />
         <About />
