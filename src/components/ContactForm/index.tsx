@@ -30,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form lg:mt-22 pb-22" ref={ref}>
+    <div className="contact-form lg:mt-22 pb-22" ref={ref} id="contact">
       <div
         className={
           showContact

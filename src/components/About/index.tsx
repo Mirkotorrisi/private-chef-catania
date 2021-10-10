@@ -13,7 +13,7 @@ const About = () => {
   }, [ref.current?.getBoundingClientRect().top]);
 
   return (
-    <div className="about pb-44" ref={ref}>
+    <div className="about pb-44" ref={ref} id="about">
       <div
         className={showAbout ? "about__animation_in" : "about__animation_out"}
       >

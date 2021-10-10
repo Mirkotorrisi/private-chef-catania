@@ -19,9 +19,8 @@ const Menu = ({ menu }: MenuProps) => {
     [innerWidth]
   );
   return (
-    <div className="menu__container fade-in-bck">
-      <h1 className="menu__title">I mieni menu</h1>
-      <h2 className="menu__section__title">Invernale</h2>
+    <div className="menu__container fade-in-bck" id="menu">
+      <h2 className="menu__section__title">Menu invernale</h2>
 
       <ul className="menu">{menuItemsMemo}</ul>
     </div>
