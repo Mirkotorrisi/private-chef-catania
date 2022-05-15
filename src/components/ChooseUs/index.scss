@@ -1,9 +1,11 @@
-.about {
+.choose_us {
   transition: all 5s;
 
   display: grid;
   place-items: center;
   z-index: 2;
+  background: var(--salmon-primary-light);
+
   &__animation_in {
     -webkit-animation: slide-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
       both;

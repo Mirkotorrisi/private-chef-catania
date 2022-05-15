@@ -6,23 +6,19 @@ import { MenuItemI, MenuProps } from "./consts";
 import FlipMenuItem from "./FlipMenuItem/index";
 
 const Menu = ({ menu }: MenuProps) => {
-  const innerWidth = typeof window !== "undefined" && window.innerWidth;
   const menuItemsMemo = useMemo(
     () =>
-      menu.map(({ image, name, description }: MenuItemI) =>
-        innerWidth >= 720 ? (
-          <MenuItem image={image} name={name} description={description} />
-        ) : (
-          <FlipMenuItem image={image} name={name} description={description} />
-        )
-      ),
-    [innerWidth]
+      menu.map(({ image, name, description }: MenuItemI) => (
+        <MenuItem image={image} name={name} description={description} />
+      )),
+    []
   );
   return (
-    <div className="menu__container fade-in-bck" id="menu">
-      <h2 className="menu__section__title">Menu invernale</h2>
+    <div className="menu_container pb-44" id="menu">
+      <h1 className="menu__title mt-20 mb-20">Sample Winter Menu</h1>
 
       <ul className="menu">{menuItemsMemo}</ul>
+      <button className="cta mt-12">Contact us</button>
     </div>
   );
 };

@@ -1,13 +1,8 @@
 import * as React from "react";
-import { useEffect } from "react";
 import "./index.scss";
 import Logo from "/public/static/svg/logo_color_bg_1.svg";
 
-let opacity: number;
-const Heading = ({ index }: { index: number }) => {
-  useEffect(() => {
-    (opacity = window.innerHeight / index - 0.3), [];
-  });
+const Heading = () => {
   const resources = [
     "basket",
     "battuta",
@@ -27,45 +22,26 @@ const Heading = ({ index }: { index: number }) => {
   ];
 
   return (
-    <header className="header w-screen h-screen" style={{ opacity }}>
-      <div className="fadecycle">
-        {resources.map((img) => (
-          <div
-            style={{ backgroundImage: "url(/images/" + img + ".jpg)" }}
-            className="header__image w-screen h-screen"
-          />
-        ))}
-      </div>
-      <div
-        className="header__wrapper w-screen h-screen"
-        style={{ overflow: "hidden", position: "fixed" }}
-      >
-        {
-          <nav className={"menu navbar" + (index ? "__anim-out" : "")}>
-            <ul className={"navbar__list"}>
-              <li>
-                <a href="#menu">Menu</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-              <li>
-                <a href="#about">About me</a>
-              </li>
-              <li>
-                <a href="#reviews">Reviews</a>
-              </li>
-            </ul>
-          </nav>
-        }
-
-        <Logo
-          style={{
-            width: "50%",
-            height: "50%",
-            transform: `scale(${index !== 0 ? index * 0.5 : 1})`,
-          }}
-        />
+    <header className="header w-screen h-screen">
+      <Logo
+        style={{
+          width: "25%",
+          height: "25%",
+          zIndex: 20000,
+          marginBottom: "2.5rem",
+        }}
+      />
+      <h1 className="header__title my-12">
+        FOOD &amp; BEVERAGE EXPERIENCE AT <span>HOME</span>
+      </h1>
+      <div className="flex items-center flex-col justify-center px-6 my-5">
+        <h1>
+          We will provide the best experiences in your preferred location.
+        </h1>
+        <div className="flex justify-between my-10">
+          <button className="cta mr-10">Contact us</button>
+          <button className="cta primary">Sample menu</button>
+        </div>
       </div>
     </header>
   );

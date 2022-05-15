@@ -17,7 +17,7 @@ main {
     10deg,
     rgba(2, 0, 36, 0) 2%,
     rgba(9, 9, 121, 0) 1%,
-    rgba(255, 255, 255, 1) 32%
+    var(--white) 32%
   );
   animation: background-anim 6s alternate infinite;
   font-family: "Raleway", sans-serif;
@@ -284,9 +284,6 @@ $scale: 1; // icon scale 68/68 default
 }
 .navbar {
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.507);
-  backdrop-filter: blur(6px);
-  box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.425);
 }
 @media (min-width: 720px) {
   .main__container {

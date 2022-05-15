@@ -2,34 +2,19 @@
   padding: 0;
   max-height: 100vh;
   transition: all 0.5s;
-  &__wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    background-color: #ffffffa9;
-  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  background-color: #ffffffa9;
   .navbar {
-    font-size: 3em;
+    font-size: 1.5em;
     background-color: #ffffff9f;
     padding: 2em;
     animation: slide-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
-    &__anim-out {
-      font-size: 3em;
-      background-color: #ffffff9f;
-      padding: 2em;
-      animation: slide-out-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
-    }
-    &__fixed {
-      z-index: 50;
-      top: 0;
-      width: 50vw;
-      font-weight: 700;
-      margin: 0;
-      background-color: var(--onion-primary);
-      position: fixed;
-    }
+
     &__list {
       &__fixed {
         padding: 2rem 0;
@@ -46,12 +31,15 @@
   }
   &__title {
     color: #b39999;
+    max-width: 750px;
     text-align: center;
     transform-style: preserve-3d;
-    font-size: 7em;
-    font-family: "Satisfy", cursive;
+    font-size: 3em;
+    span {
+      font-weight: 700;
+      text-shadow: 1px 1px var(--onion-primary);
+    }
     margin: 0;
-    text-shadow: makelongshadow(#312f2f);
   }
   &__subtitle {
     font-size: 5em;
@@ -170,5 +158,18 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
   #{$showPercentage + $animationPercentage * 2},
   100% {
     opacity: 0;
+  }
+}
+
+.cta {
+  border-radius: 2px;
+  border: 2px solid var(--salmon-primary);
+  padding: 0.5rem 2rem;
+  color: var(--salmon-primary);
+  font-weight: 700;
+  &.primary {
+    background: var(--salmon-primary);
+    color: var(--white);
+    text-shadow: #333333 0.5px 1px 0.5px;
   }
 }

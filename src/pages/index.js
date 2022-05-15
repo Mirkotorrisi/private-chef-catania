@@ -1,5 +1,6 @@
 import * as React from "react";
 import Heading from "../components/Heading";
+import ChooseUs from "../components/ChooseUs";
 import ContactForm from "../components/ContactForm";
 import Logo from "/public/static/svg/logowhite_notext.svg";
 import Footer from "../components/Footer";
@@ -13,9 +14,6 @@ import "tailwindcss/tailwind.css";
 import "../styles/colors.scss";
 // markup
 const IndexPage = () => {
-  const scroll = useScroll();
-  const [menuShow, setMenu] = React.useState(false);
-  const showMenu = () => setMenu(!menuShow);
   return (
     <main className="main flex-wrap">
       <title>Private Chef Catania</title>
@@ -27,71 +25,56 @@ const IndexPage = () => {
           crossorigin="anonymous"
         />
       </Helmet>
-      {scroll && (
-        <nav className="navbar flex fixed items-center justify-between flex-wrap w-screen p-3 lg:px-60">
-          <div className="flex-shrink-0 ml-3">
-            <Logo
-              style={{
-                width: "20%",
-                height: "20%",
-              }}
-            />
-          </div>
-          <div className="flex align-center lg:hidden">
-            <button className="mr-10" onClick={showMenu}>
-              <div
-                id="hamburger"
-                className={"hamburglar " + (menuShow ? "is-open" : "is-closed")}
-              >
-                <div className="burger-icon">
-                  <div className="burger-container">
-                    <span className="burger-bun-top"></span>
-                    <span className="burger-filling"></span>
-                    <span className="burger-bun-bot"></span>
-                  </div>
-                </div>
-
-                <div className="path-burger">
-                  <div className="animate-path"></div>
+      <nav className="navbar flex fixed items-center justify-between flex-wrap w-screen p-3 lg:px-60">
+        <div className="flex-shrink-0 ml-3">
+          <Logo
+            style={{
+              width: "20%",
+              height: "20%",
+            }}
+          />
+        </div>
+        <div className="flex align-center lg:hidden">
+          <button className="mr-10">
+            <div id="hamburger" className={"hamburglar is-closed"}>
+              <div className="burger-icon">
+                <div className="burger-container">
+                  <span className="burger-bun-top"></span>
+                  <span className="burger-filling"></span>
+                  <span className="burger-bun-bot"></span>
                 </div>
               </div>
-            </button>
+
+              <div className="path-burger">
+                <div className="animate-path"></div>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div
+          className={
+            "w-full ml-6 block flex-grow lg:flex lg:items-right lg:w-auto h-0"
+          }
+        >
+          <div className="flex items-center justify-between lg:flex-grow w-full">
+            <a href="#menu" className="block mt-4 lg:inline-block lg:mt-0 mr-4">
+              Menu
+            </a>
+            <a href="#contact" class="block mt-4 lg:inline-block lg:mt-0">
+              Contact
+            </a>
+            <a href="#about" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+              About me
+            </a>
           </div>
-          <div
-            className={
-              "w-full ml-6 block flex-grow lg:flex lg:items-right lg:w-auto " +
-              (menuShow ? "" : "h-0")
-            }
-          >
-            {menuShow ||
-              (window.innerWidth > 320 && (
-                <div className="flex items-center justify-between lg:flex-grow w-full">
-                  <a
-                    href="#menu"
-                    className="block mt-4 lg:inline-block lg:mt-0 mr-4"
-                  >
-                    Menu
-                  </a>
-                  <a href="#contact" class="block mt-4 lg:inline-block lg:mt-0">
-                    Contact
-                  </a>
-                  <a
-                    href="#about"
-                    class="block mt-4 lg:inline-block lg:mt-0 mr-4"
-                  >
-                    About me
-                  </a>
-                </div>
-              ))}
-          </div>
-        </nav>
-      )}
-      <Heading index={scroll} />
-      <div className="main__container lg:px-60">
-        <Menu menu={menu} />
-        <ContactForm />
-        <About />
-      </div>
+        </div>
+      </nav>
+      <Heading />
+
+      <ChooseUs />
+      <Menu menu={menu} />
+      <ContactForm />
+      <About />
       <Footer />
     </main>
   );

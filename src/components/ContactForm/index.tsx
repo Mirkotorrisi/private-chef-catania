@@ -5,72 +5,122 @@ import "./index.scss";
 import { useEffect } from "react";
 
 const ContactForm = () => {
-  const [message, setMessage] = useState("");
-  const [href, setHref] = useState<string>();
-  const handleChange = (e: any) => setMessage(e.target.value);
-  const ref = useRef<HTMLDivElement>(null);
-  const [showContact, setShowContact] = useState(true);
-
-  useEffect(() => {
-    ref.current &&
-    ref.current.getBoundingClientRect().top < window.innerHeight / 2
-      ? setShowContact(true)
-      : setShowContact(false);
-  }, [ref.current?.getBoundingClientRect().top]);
-
-  const contactHref = {
-    facebook: "http://m.me/PrivateChefCatania?text=" + message,
-    google:
-      "https://mail.google.com/mail/?view=cm&fs=1&to=info@privatechefcatania.com&su=Private Chef Info Request&body=" +
-      message,
-    envelope:
-      "mailto:info@privatechefcatania.com?subject=Private Chef Info Request&body=" +
-      message,
-    whatsapp: "https://wa.me/+39" + PHONE_NUMBER + "/?text=" + message,
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    email: "",
+    location: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+    date: false,
+    email: false,
+    location: false,
+    message: false,
+  });
+  const handleChange = (e: any) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+    console.log(e.target.validity);
+    setErrors({
+      ...errors,
+      [e.target.name]: !e.target.validity.valid,
+    });
   };
 
-  return (
-    <div className="contact-form lg:mt-22 pb-22" ref={ref} id="contact">
-      <div
-        className={
-          showContact
-            ? "contact-form__animation_in"
-            : "contact-form__animation_out"
-        }
-      >
-        <h1 className="contact-form__title mt-20 mb-20">Contact</h1>
-        <div className="contact-form__container">
-          <textarea
-            id="contact"
-            placeholder="Scrivimi qualcosa..."
-            value={message}
-            onChange={handleChange}
-            className="contact-form__input"
-          />
-          <h1 className="contact-form__select-label">Scrivimi su:</h1>
+  const href = "";
 
-          <ul>
-            {Object.keys(contactHref).map((key) => (
-              <div className={key + (href === key ? " active" : "")}>
-                <li onClick={() => setHref(key)} className={key}>
-                  <button className={key + (href === key ? "_active" : "")}>
-                    <i
-                      className={
-                        (key === "envelope" ? "far" : "fab") + " fa-" + key
-                      }
-                    />
-                  </button>
-                </li>
-              </div>
-            ))}
-          </ul>
+  return (
+    <div className="contact-form lg:mt-22 pb-22" id="contact">
+      <h1 className="contact-form__title mt-20 mb-20">Contact</h1>
+      <form
+        className="contact-form__container"
+        onSubmit={(e) => console.log(e)}
+      >
+        <div className="form_row">
+          <div className="flex flex-col w-full">
+            <input
+              id="name"
+              name="name"
+              placeholder="Your name"
+              minLength={2}
+              value={form.name}
+              onChange={handleChange}
+              className={`contact-form__input ${errors["name"] && "invalid"}`}
+              onError={(e) => console.log(e)}
+            />
+            {errors["name"] && <span>Min length is 2 letters</span>}
+          </div>
+          <div className="flex flex-col w-full">
+            <input
+              id="phone"
+              name="phone"
+              pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+              placeholder="Your phone"
+              value={form.phone}
+              onChange={handleChange}
+              className={`contact-form__input ${errors["phone"] && "invalid"}`}
+              onError={(e) => console.log(e)}
+            />
+            {errors["phone"] && <span>Please insert a valid phone number</span>}
+          </div>
         </div>
-        <button className="cta">
-          <a href={href ? contactHref[href] : ""} className={href}>
-            Contattami
-          </a>
-        </button>
-      </div>
+        <div className="form_row">
+          <div className="flex flex-col w-full">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Your email"
+              value={form.email}
+              onChange={handleChange}
+              className={`contact-form__input ${errors["email"] && "invalid"}`}
+              onError={(e) => console.log(e)}
+            />
+            {errors["email"] && <span>Please insert a valid email</span>}
+          </div>
+          <div className="flex flex-col w-full">
+            <input
+              id="date"
+              name="date"
+              type="date"
+              placeholder="Pick a date"
+              value={form.date}
+              onChange={handleChange}
+              className={`contact-form__input ${errors["date"] && "invalid"}`}
+            />
+            {errors["date"] && <span>Please pick a date</span>}
+          </div>
+        </div>
+        <input
+          id="location"
+          name="location"
+          type="text"
+          placeholder="Location"
+          value={form.location}
+          onChange={handleChange}
+          className={`contact-form__input ${errors["location"] && "invalid"}`}
+        />
+        {errors["location"] && <span>Please insert a location</span>}
+
+        <textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Tell us what you need"
+          value={form.message}
+          onChange={handleChange}
+          className={`contact-form__input ${errors["message"] && "invalid"}`}
+        />
+        {errors["message"] && <span>Please leave us a message</span>}
+
+        <input type="submit" className="cta" value="Send your message" />
+      </form>
     </div>
   );
 };
