@@ -1,13 +1,23 @@
-import * as React from "react";
+import React, { useRef } from "react";
 import "./index.scss";
-import { useEffect, useRef } from "react";
-import { useState } from "react";
+import { useNav } from "../../hooks/useNav";
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 const About = () => {
+  const ref = useNav("/#about");
+  const refForAnim = useRef(null);
+  const isOnScreen = useOnScreen(refForAnim);
+
   return (
-    <div className="about pb-44" id="about">
-      <h1 className="about__title mt-20 mb-20">About</h1>
+    <div className="about pb-44" id="about" ref={ref}>
+      <h1
+        className={`about__title mt-20 mb-20 animation_${isOnScreen && "in"}`}
+        ref={refForAnim}
+      >
+        About
+      </h1>
       <div className="about__container">
-        <p className="about__bio p-22 p-0:lg">
+        <p className={`about__bio p-22 p-0:lg animation_${isOnScreen && "in"}`}>
           <img
             src="../../../images/fusione.png"
             alt="fabio simone"

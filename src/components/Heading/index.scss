@@ -1,4 +1,5 @@
 .header {
+  z-index: 1;
   padding: 0;
   max-height: 100vh;
   transition: all 0.5s;
@@ -8,7 +9,7 @@
   align-items: center;
   flex-direction: column;
   top: 0;
-  background-color: #ffffffa9;
+  background-color: #ffffffeb;
   .navbar {
     font-size: 1.5em;
     background-color: #ffffff9f;
@@ -30,12 +31,23 @@
     mix-blend-mode: difference;
   }
   &__title {
-    color: #b39999;
+    color: var(--onion-secondary);
     max-width: 750px;
     text-align: center;
     transform-style: preserve-3d;
     font-size: 3em;
     span {
+      opacity: 0;
+      animation: fadeIn 0.5s;
+      animation-fill-mode: forwards;
+    }
+    @for $i from 1 through 3 {
+      span:nth-child(#{$i}n) {
+        animation-delay: #{$i * 0.5}s;
+      }
+    }
+
+    span:last-child {
       font-weight: 700;
       text-shadow: 1px 1px var(--onion-primary);
     }
@@ -44,7 +56,7 @@
   &__subtitle {
     font-size: 5em;
     background-color: #312f2f;
-    color: #b39999;
+    color: var(--onion-secondary);
     text-align: left;
     padding-left: 40%;
     margin-top: 0;
@@ -114,62 +126,57 @@
   }
 }
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.fadecycle > * {
-  opacity: 0;
-  position: fixed;
-  line-height: 200px;
-  text-align: center;
-}
-
-$totalTime: 30s;
-$items: 5;
-$animationSpeed: 1;
-
-$animationTime: 0s + $totalTime / ($items * $animationSpeed * 2);
-$showTime: (0s + $totalTime - ($animationTime * $items)) / $items;
-
-@for $i from 1 through $items {
-  .fadecycle > *:nth-child(#{$i}) {
-    $delay: -$animationTime + ($animationTime + $showTime) * ($i - 1);
-    animation: fadeinout $totalTime linear $delay infinite;
-  }
-}
-
-$animationPercentage: 0% + 100 * (($animationTime / $totalTime));
-$showPercentage: 0% + 100 * ($showTime / $totalTime);
-
-@keyframes fadeinout {
-  0% {
-    opacity: 0;
-  }
-  #{$animationPercentage},
-  #{$animationPercentage + $showPercentage} {
-    opacity: 1;
-  }
-  #{$showPercentage + $animationPercentage * 2},
-  100% {
-    opacity: 0;
-  }
-}
-
 .cta {
   border-radius: 2px;
-  border: 2px solid var(--salmon-primary);
+  border: 2px solid var(--onion-primary);
   padding: 0.5rem 2rem;
-  color: var(--salmon-primary);
+  color: var(--onion-primary);
   font-weight: 700;
-  &.primary {
-    background: var(--salmon-primary);
+  transition: all 0.25s;
+
+  &:hover {
+    background-color: var(--salmon-primary);
+    border: 2px solid var(--salmon-primary);
     color: var(--white);
+  }
+  &.primary {
+    background-position: 100% 100%;
+
+    background-color: var(--onion-primary);
+    border: 2px solid var(--onion-primary);
+
+    background-image: radial-gradient(
+        at 0% 0%,
+        var(--salmon-primary-light) 10%,
+        transparent 50%
+      ),
+      radial-gradient(at -500% 0%, hsla(5, 78%, 66%, 1) 60%, transparent 80%),
+      radial-gradient(at 200% 100%, var(--onion-primary) 60%, transparent 40%);
+    background-size: 200% 200%;
+    color: var(--white);
+    transition: all 0.25s;
     text-shadow: #333333 0.5px 1px 0.5px;
+    &:hover {
+      background-color: var(--onion-primary);
+      border: 2px solid var(--salmon-primary);
+      background-position: 0 0;
+    }
+  }
+}
+.swiper {
+  position: fixed !important;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1 !important;
+
+  &-slide img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

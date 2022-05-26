@@ -6,7 +6,7 @@
   background-color: #222222;
   height: fit-content;
   color: #fff;
-  z-index: 2;
+  z-index: 1000;
   &__columns {
     display: flex;
     justify-content: space-between;
@@ -23,28 +23,20 @@
     }
     display: grid;
     place-items: center;
-    .fa-phone {
-      color: var(--lemon-primary);
-    }
-    .fa-google {
-      color: #ea4335;
-    }
-    .fa-facebook {
-      color: #3b5998;
-    }
+
     i {
-      font-size: 2em;
+      font-size: 1.5em;
       margin: 1rem;
     }
     p {
       z-index: 2;
-      font-weight: 700;
+      font-weight: 300;
       font-size: 1.5em;
     }
   }
   &__credits {
     width: 100%;
     text-align: center;
-    border-top: 1px solid var(--lemon-primary);
+    border-top: 1px solid var(--white);
   }
 }

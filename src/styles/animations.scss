@@ -1,0 +1,16 @@
+.animation_in {
+  -webkit-animation: fade-in 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}

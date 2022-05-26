@@ -1,12 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --salmon-primary: #ed7568;
-  --salmon-secondary: #cc6562;
-  --lemon-primary: #f4ea6b;
-  --lemon-secondary: #7f7233;
-  --onion-primary: #9b80b9;
-  --onion-secondary: #503d66;
-}

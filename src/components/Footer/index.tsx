@@ -37,8 +37,12 @@ const Footer = () => (
         </a>
       </div>
     </div>
-
-    <p className="footer__credits mt-10 pt-10">WebSite from Mirko Torrisi</p>
+    <div className="footer__credits mt-10 pt-10">
+      <p>Private Chef Catania</p>
+      <p>P.Iva 1234567890</p>
+      <p>Via duca degli abruzzi 19, 95030, S. G. La Punta CT</p>
+      <p className="mt-10">WebSite from Mirko Torrisi</p>
+    </div>
   </div>
 );
 

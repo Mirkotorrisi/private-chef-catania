@@ -1,9 +1,16 @@
 .about {
   transition: all 5s;
-
+  background-color: rgba(240, 240, 240, 0.426);
+  background-image: radial-gradient(
+      at 99% 0%,
+      hsla(268, 28%, 61%, 0.103) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 99% 99%, hsla(5, 78%, 66%, 1) 20%, transparent 90%),
+    radial-gradient(at 0% 100%, hsla(55, 86%, 68%, 1) 20%, transparent 90%);
   display: grid;
   place-items: center;
-  z-index: 2;
+  z-index: 1;
   &__animation_in {
     -webkit-animation: slide-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
       both;

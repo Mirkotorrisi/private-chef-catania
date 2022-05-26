@@ -1,16 +1,31 @@
+.contact-wrapper {
+  background-color: var(--onion-primary-light);
+  background-image: radial-gradient(
+      at -50% -10%,
+      var(--white) 10%,
+      transparent 99%
+    ),
+    radial-gradient(at 0% -20%, var(--onion-primary) 65%, transparent 99%);
+}
 .contact-form {
   width: 936px;
   max-width: 80vw;
   margin: auto;
-
+  padding: 5rem 0;
+  z-index: 1;
   &__title {
+    opacity: 0;
+
     font-size: 2.5em;
-    padding: 0 1rem;
     font-family: "UtopiaRegular";
     border-bottom: 1px solid var(--onion-primary);
   }
   .form_row {
     display: flex;
+    opacity: 0;
+  }
+  #date {
+    height: 61px;
   }
   &__input {
     resize: none;
@@ -20,50 +35,38 @@
     border: 0px;
     border-bottom: 1px solid;
     background-color: transparent;
-    border-image: linear-gradient(to right, #8b8b8b, transparent);
+    border-image: linear-gradient(to right, var(--black), transparent);
     transition: all 0.5s;
     &:focus {
       box-sizing: content-box;
-      border: 1px solid var(--onion-primary);
-      color: var(--onion-primary);
+      border: 1px solid var(--lemon-primary);
+      animation: animateBorder 5s infinite;
+      color: #000000;
       border-top: none;
       border-right: none;
       border-left: none;
       outline: none;
     }
     border-image-slice: 1;
-    ::placeholder {
+    &::placeholder {
       margin: 0.25rem;
-      color: #000000;
+      color: #4e4e4e;
     }
     &.invalid {
-      border-color: #ea4335;
+      border-color: #ff1500;
     }
   }
   span {
-    color: #ea4335;
+    color: #ff1500;
     font-weight: 500;
   }
 
   .cta {
-    z-index: 10;
-    overflow: hidden;
     margin-top: 5rem;
-    display: grid;
     padding: 1rem 2rem;
-    place-items: center;
     color: var(--white);
-    background-color: var(--salmon-primary);
-    a {
-      width: 100%;
-      color: rgb(0, 0, 0);
-      padding: 0.5em;
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-    a:hover {
-      background: var(--onion-primary);
-      color: #ffffff;
+    &:hover {
+      cursor: pointer;
     }
   }
 }
@@ -71,7 +74,20 @@
 @media (max-width: 768px) {
   .contact-form {
     &__input {
-      min-height: 10em;
+      margin: 1rem 0;
     }
+  }
+  .form_row {
+    flex-direction: column;
+  }
+}
+
+@keyframes animateBorder {
+  50% {
+    border: 1px solid var(--black);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
   }
 }

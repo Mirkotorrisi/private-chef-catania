@@ -1,4 +1,8 @@
 .menu-item {
+  &__container {
+    opacity: 0;
+  }
+
   &__name {
     position: relative;
     font-size: 2em;
@@ -38,12 +42,11 @@
     }
   }
 }
-@media (min-width: 960px) {
+@media (max-width: 960px) {
   .menu-item {
-    &__container {
-      background-size: cover;
-      background-position: -10vw;
-      background-repeat: no-repeat;
+    &__name,
+    &__description {
+      text-align: left;
     }
   }
 }
