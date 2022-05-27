@@ -3,6 +3,13 @@ import { useState } from "react";
 import "./index.scss";
 import { useNav } from "../../hooks/useNav";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { FaUser } from "@react-icons/all-files/fa/FaUser";
+import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
+import { FaPhone } from "@react-icons/all-files/fa/FaPhone";
+import { FaPencilAlt } from "@react-icons/all-files/fa/FaPencilAlt";
+import { FaCalendarDay } from "@react-icons/all-files/fa/FaCalendarDay";
+import { MdLocationOn } from "@react-icons/all-files/md/MdLocationOn";
+import axios from "axios";
 
 const ContactForm = () => {
   const ref = useNav("/#contact");
@@ -30,14 +37,25 @@ const ContactForm = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.validity);
+    if (errors[e.target.name])
+      setErrors({
+        ...errors,
+        [e.target.name]: !e.target.validity.valid,
+      });
+  };
+  const handleBlur = (e) => {
     setErrors({
       ...errors,
       [e.target.name]: !e.target.validity.valid,
     });
   };
-
-  const href = "";
+  const href = "https://b2a280254f54221d247516b80821d67c.m.pipedream.net";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await axios.post(href, form);
+  };
+  const hasErrors = Object.values(errors).some((error) => !!error);
+  const hasEmpty = Object.values(form).some((value) => !value);
 
   return (
     <div className="contact-wrapper">
@@ -50,37 +68,43 @@ const ContactForm = () => {
         >
           Contact
         </h1>
-        <form
-          className="contact-form__container "
-          onSubmit={(e) => console.log(e)}
-        >
+        <form className="contact-form__container " onSubmit={handleSubmit}>
           <div className={`form_row animation_${isOnScreen && "in"}`}>
             <div className="flex flex-col w-full">
-              <input
-                id="name"
-                name="name"
-                placeholder="Your name"
-                minLength={2}
-                value={form.name}
-                onChange={handleChange}
-                className={`contact-form__input ${errors["name"] && "invalid"}`}
-                onError={(e) => console.log(e)}
-              />
+              <div className="contact-form__input__wrapper">
+                <FaUser />
+                <input
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  minLength={2}
+                  value={form.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`contact-form__input ${
+                    errors["name"] && "invalid"
+                  }`}
+                />
+              </div>
               {errors["name"] && <span>Min length is 2 letters</span>}
             </div>
             <div className="flex flex-col w-full">
-              <input
-                id="phone"
-                name="phone"
-                pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
-                placeholder="Your phone"
-                value={form.phone}
-                onChange={handleChange}
-                className={`contact-form__input ${
-                  errors["phone"] && "invalid"
-                }`}
-                onError={(e) => console.log(e)}
-              />
+              <div className="contact-form__input__wrapper">
+                <FaPhone />
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+                  placeholder="Your phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`contact-form__input ${
+                    errors["phone"] && "invalid"
+                  }`}
+                />
+              </div>
               {errors["phone"] && (
                 <span>Please insert a valid phone number</span>
               )}
@@ -88,62 +112,79 @@ const ContactForm = () => {
           </div>
           <div className={`form_row animation_${isOnScreen && "in"}`}>
             <div className="flex flex-col w-full">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Your email"
-                value={form.email}
-                onChange={handleChange}
-                className={`contact-form__input ${
-                  errors["email"] && "invalid"
-                }`}
-                onError={(e) => console.log(e)}
-              />
+              <div className="contact-form__input__wrapper">
+                <FaEnvelope />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Your email"
+                  value={form.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`contact-form__input ${
+                    errors["email"] && "invalid"
+                  }`}
+                />
+              </div>
               {errors["email"] && <span>Please insert a valid email</span>}
             </div>
             <div className="flex flex-col w-full">
-              <input
-                id="date"
-                name="date"
-                type="date"
-                placeholder="Pick a date"
-                value={form.date}
-                onChange={handleChange}
-                className={`contact-form__input ${errors["date"] && "invalid"}`}
-              />
+              <div className="contact-form__input__wrapper date">
+                <FaCalendarDay />
+                <input
+                  id="date"
+                  name="date"
+                  type="date"
+                  placeholder="Pick a date"
+                  value={form.date}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`contact-form__input ${
+                    errors["date"] && "invalid"
+                  }`}
+                />
+              </div>
               {errors["date"] && <span>Please pick a date</span>}
             </div>
           </div>
-          <input
-            id="location"
-            name="location"
-            type="text"
-            placeholder="Location"
-            value={form.location}
-            onChange={handleChange}
-            className={`contact-form__input ${
-              errors["location"] && "invalid"
-            } animation_${isOnScreen && "in"}`}
-          />
+          <div className="contact-form__input__wrapper">
+            <MdLocationOn />
+            <input
+              id="location"
+              name="location"
+              type="text"
+              placeholder="Location"
+              value={form.location}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`contact-form__input ${
+                errors["location"] && "invalid"
+              } animation_${isOnScreen && "in"}`}
+            />
+          </div>
           {errors["location"] && <span>Please insert a location</span>}
-
-          <textarea
-            id="message"
-            name="message"
-            required
-            placeholder="Tell us what you need"
-            value={form.message}
-            onChange={handleChange}
-            className={`contact-form__input ${
-              errors["message"] && "invalid"
-            } animation_${isOnScreen && "in"}`}
-          />
+          <div className="contact-form__input__wrapper">
+            <FaPencilAlt />
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Tell us what you need"
+              value={form.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`contact-form__input ${
+                errors["message"] && "invalid"
+              } animation_${isOnScreen && "in"}`}
+            />
+          </div>
           {errors["message"] && <span>Please leave us a message</span>}
           <input
             type="submit"
             className="cta primary"
             value="Send your message"
+            disabled={hasErrors || hasEmpty}
           />
         </form>
       </div>

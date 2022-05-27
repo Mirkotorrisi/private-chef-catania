@@ -14,6 +14,8 @@ main {
   font-family: "Raleway", sans-serif;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
+
   &__container {
     transition: all 1.5s;
     flex-direction: column;

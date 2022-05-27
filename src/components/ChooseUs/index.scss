@@ -5,8 +5,8 @@
   display: grid;
   place-items: center;
   z-index: 2;
-  background: var(--salmon-primary-light);
-
+  background: var(--onion-primary-light);
+  backdrop-filter: blur(20px);
   &__title {
     width: 936px;
     max-width: 80vw;

@@ -20,8 +20,12 @@ const Heading = () => {
             <span className="font-bold">preferred location</span>.
           </h1>
           <div className="flex justify-between my-10">
-            <button className="cta primary mr-10">Contact us</button>
-            <button className="cta ">Sample menu</button>
+            <a href="#contact">
+              <button className="cta primary mr-10">Contact us</button>
+            </a>
+            <a href="#menu">
+              <button className="cta ">Sample menu</button>
+            </a>
           </div>
         </div>
       </header>

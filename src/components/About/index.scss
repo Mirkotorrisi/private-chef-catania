@@ -1,5 +1,6 @@
 .about {
   transition: all 5s;
+  backdrop-filter: blur(20px);
   background-color: rgba(240, 240, 240, 0.426);
   background-image: radial-gradient(
       at 99% 0%,
@@ -10,16 +11,6 @@
     radial-gradient(at 0% 100%, hsla(55, 86%, 68%, 1) 20%, transparent 90%);
   display: grid;
   place-items: center;
-  z-index: 1;
-  &__animation_in {
-    -webkit-animation: slide-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
-      both;
-    animation: slide-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  }
-  &__animation_out {
-    -webkit-animation: fade-out 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation: fade-out 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  }
   &__title {
     width: 936px;
     max-width: 80vw;
@@ -41,5 +32,29 @@
 
     width: 60%;
     shape-outside: url("../../../public/images/fusione.png");
+  }
+  .carousel {
+    width: 100%;
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 50%;
+      height: 50%;
+      box-shadow: none;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .swiper-slide {
+    width: 90% !important;
+    height: 90% !important;
   }
 }

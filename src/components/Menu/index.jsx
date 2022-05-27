@@ -11,7 +11,12 @@ const Menu = ({ menu }) => {
   const menuItemsMemo = useMemo(
     () =>
       menu.map(({ image, name, description }) => (
-        <MenuItem image={image} name={name} description={description} />
+        <MenuItem
+          image={image}
+          name={name}
+          description={description}
+          key={`${image}menuItem`}
+        />
       )),
     []
   );
@@ -22,7 +27,6 @@ const Menu = ({ menu }) => {
       </h1>
 
       <ul className="menu">{menuItemsMemo}</ul>
-      <button className="cta mt-12">Contact us</button>
     </div>
   );
 };

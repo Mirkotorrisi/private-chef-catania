@@ -3,6 +3,16 @@ import "./index.scss";
 import { useNav } from "../../hooks/useNav";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// import required modules
+import { EffectCoverflow, Autoplay, Pagination } from "swiper";
+import { menu } from "../../resources";
+
 const About = () => {
   const ref = useNav("/#about");
   const refForAnim = useRef(null);
@@ -38,6 +48,33 @@ const About = () => {
           è soddisfare questi palati, nell'intimità di casa, dando origine per
           Voi al concetto di "ristorante" a domicilio!
         </p>
+      </div>
+      <div className="carousel mt-20">
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+          }}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          speed={1000}
+          loop={true}
+        >
+          {menu.map(({ image }) => (
+            <SwiperSlide key={`about${image}`}>
+              <img src={`/images/${image}.jpg`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

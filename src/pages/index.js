@@ -41,6 +41,7 @@ const IndexPage = () => {
         pagination={{
           clickable: true,
         }}
+        className="fadeSwiper"
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -50,7 +51,7 @@ const IndexPage = () => {
         modules={[EffectFade, Autoplay]}
       >
         {menu.map(({ image }) => (
-          <SwiperSlide>
+          <SwiperSlide key={image}>
             <img src={`/images/${image}.jpg`} />
           </SwiperSlide>
         ))}

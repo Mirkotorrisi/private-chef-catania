@@ -6,7 +6,6 @@ const NavLink = ({ link, children }) => {
   const handleClick = () => {
     setActiveNavLinkId(link);
   };
-  console.log(activeNavLinkId === link, link);
   return (
     <div className="nav__item__block">
       <a
