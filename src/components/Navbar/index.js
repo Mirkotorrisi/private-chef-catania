@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 import NavLink from "./NavLink";
-import Logo from "/public/static/svg/logo_color_bg_1.svg";
+import Logo from "/public/static/svg/logo_black_1.svg";
 import Logotipo from "/public/static/svg/logotipo.svg";
 
 const Navbar = () => {

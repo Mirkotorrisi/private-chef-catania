@@ -11,11 +11,18 @@ import { FaCalendarDay } from "@react-icons/all-files/fa/FaCalendarDay";
 import { MdLocationOn } from "@react-icons/all-files/md/MdLocationOn";
 import axios from "axios";
 
+const LOADING = "LOADING";
+const SUCCESS = "SUCCESS";
+const ERROR = "ERROR";
+
+const ctaValue = {
+  SUCCESS: "Thank you for ",
+};
 const ContactForm = () => {
   const ref = useNav("/#contact");
   const refForAnim = useRef(null);
   const isOnScreen = useOnScreen(ref);
-
+  const [step, setStep] = useState();
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -52,7 +59,9 @@ const ContactForm = () => {
   const href = "https://b2a280254f54221d247516b80821d67c.m.pipedream.net";
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStep(LOADING);
     const res = await axios.post(href, form);
+    if (res) setStep("SUCCESS");
   };
   const hasErrors = Object.values(errors).some((error) => !!error);
   const hasEmpty = Object.values(form).some((value) => !value);
@@ -180,16 +189,51 @@ const ContactForm = () => {
             />
           </div>
           {errors["message"] && <span>Please leave us a message</span>}
-          <input
-            type="submit"
-            className="cta primary"
-            value="Send your message"
+          <button
+            className={`cta primary ${step}`}
             disabled={hasErrors || hasEmpty}
-          />
+          >
+            <ProgressStepper step={step} />
+          </button>
         </form>
+        {step === SUCCESS && (
+          <h2 className="thanks animation_in mt-2">
+            Thank you for your message! We will contact you soon.
+          </h2>
+        )}
       </div>
     </div>
   );
 };
 
 export default ContactForm;
+
+const ProgressStepper = ({ step }) => {
+  switch (step) {
+    case LOADING:
+      return (
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
+    case SUCCESS:
+      return (
+        <div className="success-checkmark">
+          <div className="check-icon">
+            <span className="icon-line line-tip"></span>
+            <span className="icon-line line-long"></span>
+            <div className="icon-circle"></div>
+            <div className="icon-fix"></div>
+          </div>
+        </div>
+      );
+    case ERROR:
+      return "Something went wrong, please try again";
+
+    default:
+      return "Send your message";
+  }
+};

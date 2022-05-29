@@ -5,10 +5,8 @@
   display: grid;
   place-items: center;
   z-index: 2;
-  background: var(--onion-primary-light);
-  backdrop-filter: blur(20px);
+
   &__title {
-    width: 936px;
     max-width: 80vw;
     opacity: 0;
     font-size: 2.5em;
@@ -25,10 +23,16 @@
 
     margin: 0 auto;
   }
-  &__pic {
-    float: right;
-
-    width: 60%;
-    shape-outside: url("../../../public/images/fusione.png");
+  .reviews {
+    max-width: 80vw;
+    width: 100%;
+    li {
+      list-style-type: none;
+      max-width: 700px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
   }
 }

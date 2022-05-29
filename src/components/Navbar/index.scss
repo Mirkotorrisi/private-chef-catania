@@ -1,5 +1,5 @@
 .navbar {
-  color: var(--onion-secondary);
+  color: var(--black);
   font-weight: 700;
   z-index: 1000;
 
@@ -14,7 +14,7 @@
   background-size: 200% 200%;
   background-position: 0 0%;
 
-  color: var(--onion-secondary);
+  color: var(--black);
   transition: all 0.2s ease-in;
   &__block {
     background-size: 20px 100%;
@@ -103,7 +103,7 @@ $scale: 0.5; // icon scale 68/68 default
   height: 2px;
   width: 36px;
   border-radius: 2px;
-  background: var(--onion-secondary);
+  background: var(--black);
 }
 
 .burger-bun-top {

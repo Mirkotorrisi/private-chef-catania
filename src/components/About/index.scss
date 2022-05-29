@@ -1,14 +1,6 @@
 .about {
   transition: all 5s;
-  backdrop-filter: blur(20px);
-  background-color: rgba(240, 240, 240, 0.426);
-  background-image: radial-gradient(
-      at 99% 0%,
-      hsla(268, 28%, 61%, 0.103) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 99% 99%, hsla(5, 78%, 66%, 1) 20%, transparent 90%),
-    radial-gradient(at 0% 100%, hsla(55, 86%, 68%, 1) 20%, transparent 90%);
+
   display: grid;
   place-items: center;
   &__title {
@@ -18,7 +10,7 @@
     font-size: 2.5em;
     font-family: "UtopiaRegular";
     text-align: left;
-    border-bottom: 1px solid var(--salmon-secondary);
+    border-bottom: 1px solid var(--black);
   }
   &__bio {
     font-size: 1.5em;

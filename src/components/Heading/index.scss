@@ -1,4 +1,5 @@
 .header {
+  width: 100vw;
   z-index: 1;
   padding: 0;
   max-height: 100vh;
@@ -9,7 +10,7 @@
   align-items: center;
   flex-direction: column;
   top: 0;
-  background-color: #ffffffeb;
+  background-color: var(--white-transparent);
   .navbar {
     font-size: 1.5em;
     background-color: #ffffff9f;
@@ -31,11 +32,12 @@
     mix-blend-mode: difference;
   }
   &__title {
-    color: var(--onion-secondary);
     max-width: 750px;
     text-align: center;
     transform-style: preserve-3d;
-    font-size: 3em;
+    font-size: 4em;
+    color: var(--black);
+
     span {
       opacity: 0;
       animation: fadeIn 0.5s;
@@ -49,19 +51,16 @@
 
     span:last-child {
       font-weight: 700;
-      text-shadow: 1px 1px var(--onion-primary);
+      color: var(--salmon-secondary);
+
+      text-shadow: 1px 1px var(--salmon-primary);
     }
     margin: 0;
   }
-  &__subtitle {
-    font-size: 5em;
-    background-color: #312f2f;
-    color: var(--onion-secondary);
-    text-align: left;
-    padding-left: 40%;
+  .subtitle {
+    color: var(--black);
     margin-top: 0;
-    transform-style: preserve-3d;
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-family: "Open Sans Condensed", sans-serif;
   }
   &__image {
@@ -128,9 +127,9 @@
 
 .cta {
   border-radius: 2px;
-  border: 2px solid var(--onion-primary);
+  border: 2px solid var(--salmon-primary);
   padding: 0.5rem 2rem;
-  color: var(--onion-primary);
+  color: var(--salmon-primary);
   font-weight: 700;
   transition: all 0.25s;
 
@@ -142,8 +141,8 @@
   &.primary {
     background-position: 100% 100%;
 
-    background-color: var(--onion-primary);
-    border: 2px solid var(--onion-primary);
+    background-color: var(--salmon-primary);
+    border: 2px solid var(--salmon-primary);
 
     background-image: radial-gradient(
         at 0% 0%,
@@ -151,29 +150,24 @@
         transparent 50%
       ),
       radial-gradient(at -500% 0%, hsla(5, 78%, 66%, 1) 60%, transparent 80%),
-      radial-gradient(at 200% 100%, var(--onion-primary) 60%, transparent 40%);
+      radial-gradient(at 200% 100%, var(--salmon-primary) 60%, transparent 40%);
     background-size: 200% 200%;
     color: var(--white);
     transition: all 0.25s;
     text-shadow: #333333 0.5px 1px 0.5px;
     &:hover {
-      background-color: var(--onion-primary);
+      background-color: var(--salmon-primary);
       border: 2px solid var(--salmon-primary);
       background-position: 0 0;
     }
   }
 }
-.fadeSwiper {
-  position: fixed !important;
-  width: 100vw;
+.videoBackground {
+  position: absolute !important;
+  width: 100%;
   height: 100vh;
   z-index: -1 !important;
-
-  .swiper-slide img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
+  object-fit: cover;
 }
 @keyframes fadeIn {
   to {
