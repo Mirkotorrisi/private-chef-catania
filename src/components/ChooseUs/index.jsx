@@ -11,16 +11,12 @@ const ChooseUs = ({ data }) => {
 
   return (
     <div className={`py-20 lg:py-32 choose_us `} id="choose_us" ref={ref}>
-      <p
-        className={`choose_us__bio p-22 p-0:lg animation_${isOnScreen && "in"}`}
-      >
+      <p className={`choose_us__bio p-22 p-0:lg animation_in`}>
         We are one of the best solutions in Sicily that guarantees a high
         quality home chef service. Our decades of experience allows us to
         satisfy the most refined and elaborate needs.{" "}
       </p>
-      <p
-        className={`choose_us__bio p-22 p-0:lg animation_${isOnScreen && "in"}`}
-      >
+      <p className={`choose_us__bio p-22 p-0:lg animation_in`}>
         Whether it's a dinner for two or a special event with dozens of guests,
         we will offer a unique and high-level experience. Ours is a 360-degree
         service, we take care of the customer from the moment he chooses the

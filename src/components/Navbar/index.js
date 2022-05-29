@@ -10,7 +10,7 @@ const Navbar = ({ customActiveLink }) => {
 
   return (
     <nav className="navbar flex fixed items-center justify-between flex-wrap w-screen px-10 ">
-      <NavLink link="/#home">
+      <NavLink link="/">
         <Logo className="navbar__logo hidden lg:inline-block" />
         <Logotipo className="navbar__logo--small lg:hidden" />
       </NavLink>
