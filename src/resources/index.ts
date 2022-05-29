@@ -37,9 +37,12 @@ const menu = [
   },
 ];
 
-const PHONE_NUMBER = "3427326917";
-const GOOGLE_URL = "3427326917";
-const FACEBOOK_URL = "https://www.facebook.com/PrivateChefCatania";
-const TAKE_A_CHEF_URL = "https://www.takeachef.com/it-it/chef/fabio-simone";
+const PHONE_NUMBER = "tel:+393276163861";
+const GOOGLE =
+  "https://www.google.com/maps/place/Private+Chef+Catania/@37.5562798,15.0886681,15z/data=!4m5!3m4!1s0x0:0x2e1976d423361198!8m2!3d37.5562798!4d15.0886681";
+const FACEBOOK = "https://www.facebook.com/PrivateChefCatania";
+const INSTAGRAM = "https://www.instagram.com/privatechefcatania/";
+const WHATSAPP = "https://wa.me/393276163861";
+const EMAIL = "mailto:s.privatechefcatania@gmail.com";
 
-export { PHONE_NUMBER, GOOGLE_URL, FACEBOOK_URL, TAKE_A_CHEF_URL, menu };
+export { PHONE_NUMBER, GOOGLE, FACEBOOK, INSTAGRAM, WHATSAPP, EMAIL, menu };

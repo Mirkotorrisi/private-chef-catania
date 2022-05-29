@@ -9,7 +9,7 @@ const Heading = () => {
 
   return (
     <>
-      <video className="videoBackground" autoPlay muted loop>
+      <video className="videoBackground" autoPlay muted loop playsInline>
         <source src={videoFusione} type="video/mp4" />
       </video>
       <header className="header w-screen h-screen" ref={ref}>

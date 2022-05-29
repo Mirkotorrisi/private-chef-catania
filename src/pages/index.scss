@@ -13,6 +13,7 @@ main {
   margin: 0;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: #fff3db52;
   &__container {
     transition: all 1.5s;
     flex-direction: column;

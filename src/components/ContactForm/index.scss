@@ -1,11 +1,22 @@
 .contact-wrapper {
-  background-color: var(--white-transparent);
+  background-color: var(--salmon-primary-light);
   background-image: radial-gradient(
       at -50% -10%,
       var(--white) 10%,
       transparent 99%
     ),
-    radial-gradient(at 0% -20%, var(--white-transparent) 65%, transparent 99%);
+    radial-gradient(
+      at 0% -20%,
+      var(--salmon-primary-light) 65%,
+      transparent 99%
+    );
+  // background-color: var(--white-transparent);
+  // background-image: radial-gradient(
+  //     at -50% -10%,
+  //     var(--white) 10%,
+  //     transparent 99%
+  //   ),
+  //   radial-gradient(at 0% -20%, var(--white-transparent) 65%, transparent 99%);
 }
 .contact-form {
   width: 100%;

@@ -2,7 +2,7 @@ import * as React from "react";
 import "./index.scss";
 import { useRef } from "react";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import fusioneContadino from "../../../public/images/fusione_contadino.jpeg";
+import reviewsPic from "../../../public/images/reviews_pic.jpeg";
 import { FaStar } from "@react-icons/all-files/fa/FaStar";
 
 const ChooseUs = ({ data }) => {
@@ -48,10 +48,7 @@ const ChooseUs = ({ data }) => {
               )
             )}
           </div>
-          <img
-            src={fusioneContadino}
-            className="choose_us__img mt-10 lg:mt-0"
-          />
+          <img src={reviewsPic} className="choose_us__img mt-10 lg:mt-0" />
         </div>
       </div>
     </div>
