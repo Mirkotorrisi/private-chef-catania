@@ -15,9 +15,6 @@ const LOADING = "LOADING";
 const SUCCESS = "SUCCESS";
 const ERROR = "ERROR";
 
-const ctaValue = {
-  SUCCESS: "Thank you for ",
-};
 const ContactForm = () => {
   const ref = useNav("/#contact");
   const refForAnim = useRef(null);
@@ -68,9 +65,9 @@ const ContactForm = () => {
 
   return (
     <div className="contact-wrapper">
-      <div className="contact-form " id="contact" ref={ref}>
+      <div className="contact-form py-20 lg:py-32" id="contact" ref={ref}>
         <h1
-          className={`contact-form__title mb-20 animation_${
+          className={`contact-form__title mb-10 lg:mb-20 animation_${
             isOnScreen && "in"
           }`}
           ref={refForAnim}
@@ -85,17 +82,18 @@ const ContactForm = () => {
                 <input
                   id="name"
                   name="name"
+                  required
                   placeholder="Your name"
                   minLength={2}
                   value={form.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`contact-form__input ${
+                  className={`lg:h-20 contact-form__input ${
                     errors["name"] && "invalid"
                   }`}
                 />
               </div>
-              {errors["name"] && <span>Min length is 2 letters</span>}
+              {errors["name"] && <span>Please insert your name</span>}
             </div>
             <div className="flex flex-col w-full">
               <div className="contact-form__input__wrapper">
@@ -103,13 +101,14 @@ const ContactForm = () => {
                 <input
                   id="phone"
                   name="phone"
+                  required
                   type="tel"
                   pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
                   placeholder="Your phone"
                   value={form.phone}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`contact-form__input ${
+                  className={`lg:h-20 contact-form__input ${
                     errors["phone"] && "invalid"
                   }`}
                 />
@@ -127,11 +126,12 @@ const ContactForm = () => {
                   id="email"
                   name="email"
                   type="email"
+                  required
                   placeholder="Your email"
                   value={form.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`contact-form__input ${
+                  className={`lg:h-20 contact-form__input ${
                     errors["email"] && "invalid"
                   }`}
                 />
@@ -144,12 +144,13 @@ const ContactForm = () => {
                 <input
                   id="date"
                   name="date"
+                  required
                   type="date"
                   placeholder="Pick a date"
                   value={form.date}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`contact-form__input ${
+                  className={`lg:h-20 contact-form__input ${
                     errors["date"] && "invalid"
                   }`}
                 />
@@ -163,11 +164,12 @@ const ContactForm = () => {
               id="location"
               name="location"
               type="text"
+              required
               placeholder="Location"
               value={form.location}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`contact-form__input ${
+              className={`lg:h-20 contact-form__input ${
                 errors["location"] && "invalid"
               } animation_${isOnScreen && "in"}`}
             />
@@ -175,7 +177,7 @@ const ContactForm = () => {
           {errors["location"] && <span>Please insert a location</span>}
           <div className="contact-form__input__wrapper">
             <FaPencilAlt />
-            <textarea
+            <input
               id="message"
               name="message"
               required
@@ -183,18 +185,20 @@ const ContactForm = () => {
               value={form.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`contact-form__input ${
+              className={`lg:h-20 contact-form__input ${
                 errors["message"] && "invalid"
               } animation_${isOnScreen && "in"}`}
             />
           </div>
           {errors["message"] && <span>Please leave us a message</span>}
-          <button
-            className={`cta primary ${step}`}
-            disabled={hasErrors || hasEmpty}
-          >
-            <ProgressStepper step={step} />
-          </button>
+          <div className={`form_row animation_${isOnScreen && "in"}`}>
+            <button
+              className={`cta primary ${step}`}
+              disabled={hasErrors || hasEmpty}
+            >
+              <ProgressStepper step={step} />
+            </button>
+          </div>
         </form>
         {step === SUCCESS && (
           <h2 className="thanks animation_in mt-2">

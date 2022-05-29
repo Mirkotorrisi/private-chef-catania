@@ -3,36 +3,30 @@ import "./index.scss";
 import { useNav } from "../../hooks/useNav";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// import required modules
-import { EffectCoverflow, Autoplay, Pagination } from "swiper";
-import { menu } from "../../resources";
-
 const About = () => {
   const ref = useNav("/#about");
   const refForAnim = useRef(null);
   const isOnScreen = useOnScreen(refForAnim);
 
   return (
-    <div className="about pb-44" id="about" ref={ref}>
+    <div className="about pb-20 lg:pb-44" id="about" ref={ref}>
       <h1
         className={`about__title mt-20 mb-20 animation_${isOnScreen && "in"}`}
         ref={refForAnim}
       >
         About
       </h1>
-      <div className="about__container">
-        <p className={`about__bio p-22 p-0:lg animation_${isOnScreen && "in"}`}>
-          <img
-            src="../../../images/fusione.png"
-            alt="fabio simone"
-            className="about__pic"
-          />
+      <div className="w-full flex flex-col lg:flex-row justify-between">
+        <img
+          src="../../../images/fusione.png"
+          alt="fabio simone"
+          className="about__pic mb-10 lg:mb-0"
+        />
+        <p
+          className={`about__bio lg:pl-20 p-0:lg animation_${
+            isOnScreen && "in"
+          }`}
+        >
           Sono nato a Catania, fra le pendici dell'Etna e le coste della Sicilia
           orientale, luogo d'origine di molteplici tradizioni culinarie ispirate
           dal connubio fra terra e mare. La mia passione nasce tra i fornelli di
@@ -49,33 +43,9 @@ const About = () => {
           Voi al concetto di "ristorante" a domicilio!
         </p>
       </div>
-      <div className="carousel mt-20">
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-          }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          speed={1000}
-          loop={true}
-        >
-          {menu.map(({ image }) => (
-            <SwiperSlide key={`about${image}`}>
-              <img src={`/images/${image}.jpg`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <a href="/gallery/">
+        <button className="cta primary mt-20">Go to the gallery</button>
+      </a>
     </div>
   );
 };

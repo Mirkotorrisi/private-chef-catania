@@ -21,12 +21,17 @@ const Menu = ({ menu }) => {
     []
   );
   return (
-    <div className="menu_container pb-44" id="menu" ref={ref}>
-      <h1 className={`menu__title mt-20 mb-20 animation_${isOnScreen && "in"}`}>
+    <div className="menu_container " id="menu" ref={ref}>
+      <h1 className={`menu__title mt-44 mb-20 animation_${isOnScreen && "in"}`}>
         Sample Winter Menu
       </h1>
 
       <ul className="menu">{menuItemsMemo}</ul>
+      <div className="flex justify-center">
+        <a href="/#contact" className="my-20">
+          <button className="cta primary">Contact us</button>
+        </a>
+      </div>
     </div>
   );
 };

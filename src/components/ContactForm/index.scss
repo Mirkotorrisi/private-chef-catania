@@ -8,10 +8,9 @@
     radial-gradient(at 0% -20%, var(--white-transparent) 65%, transparent 99%);
 }
 .contact-form {
-  width: 936px;
+  width: 100%;
   max-width: 80vw;
   margin: auto;
-  padding: 5rem 0;
   z-index: 1;
   &__title {
     opacity: 0;
@@ -41,9 +40,7 @@
     border-image: linear-gradient(to right, var(--black), transparent);
     transition: all 0.5s;
     &:focus {
-      box-sizing: content-box;
-      border: 1px solid var(--lemon-primary);
-      animation: animateBorder 5s infinite;
+      border: 1px solid var(--black);
       color: #000000;
       border-top: none;
       border-right: none;
@@ -71,7 +68,7 @@
   .cta {
     margin-top: 5rem;
     padding: 1rem 2rem;
-    color: var(--white);
+    color: #ffffff;
     &:hover {
       cursor: pointer;
     }

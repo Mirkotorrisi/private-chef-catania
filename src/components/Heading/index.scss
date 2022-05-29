@@ -88,42 +88,6 @@
     opacity: 1;
   }
 }
-@keyframes slide-in-left {
-  0% {
-    -webkit-transform: translateX(-1000px);
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes slide-out-left {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(-1000px);
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-}
-@keyframes slide-out-left {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(-1000px);
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-}
 
 .cta {
   border-radius: 2px;
@@ -152,7 +116,7 @@
       radial-gradient(at -500% 0%, hsla(5, 78%, 66%, 1) 60%, transparent 80%),
       radial-gradient(at 200% 100%, var(--salmon-primary) 60%, transparent 40%);
     background-size: 200% 200%;
-    color: var(--white);
+    color: #ffffff;
     transition: all 0.25s;
     text-shadow: #333333 0.5px 1px 0.5px;
     &:hover {

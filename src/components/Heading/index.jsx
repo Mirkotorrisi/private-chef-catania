@@ -13,7 +13,7 @@ const Heading = () => {
         <source src={videoFusione} type="video/mp4" />
       </video>
       <header className="header w-screen h-screen" ref={ref}>
-        <h1 className="header__title my-12">
+        <h1 className="header__title my-12 px-3 lg:p-0">
           <span>Food &amp; beverage</span> <span>experience</span>{" "}
           <span>at home</span>
         </h1>
@@ -23,9 +23,11 @@ const Heading = () => {
             <span className="font-bold">best experiences</span> in your{" "}
             <span className="font-bold">preferred location</span>.
           </h1>
-          <div className="flex center my-10">
-            <a href="#contact">
-              <button className="cta primary mr-10">Contact us</button>
+          <div className="flex justify-center w-full my-10">
+            <a href="#contact" className="w-full lg:w-44">
+              <button className="cta primary w-full lg:w-44 p-3">
+                Contact us
+              </button>
             </a>
           </div>
         </div>

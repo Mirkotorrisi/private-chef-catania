@@ -30,3 +30,9 @@ $scale: 1; // icon scale 68/68 default
     flex-direction: row;
   }
 }
+
+@media screen and (max-width: 765px) {
+  body {
+    font-size: 12px;
+  }
+}

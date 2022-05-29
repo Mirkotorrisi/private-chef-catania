@@ -3,14 +3,14 @@ import "./index.scss";
 import { useRef } from "react";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import fusioneContadino from "../../../public/images/fusione_contadino.jpeg";
+import { FaStar } from "@react-icons/all-files/fa/FaStar";
 
 const ChooseUs = ({ data }) => {
-  console.log("🚀 ~ file: index.jsx ~ line 7 ~ ChooseUs ~ data", data);
   const ref = useRef(null);
   const isOnScreen = useOnScreen(ref);
 
   return (
-    <div className={`py-32 choose_us `} id="choose_us" ref={ref}>
+    <div className={`py-20 lg:py-32 choose_us `} id="choose_us" ref={ref}>
       <p
         className={`choose_us__bio p-22 p-0:lg animation_${isOnScreen && "in"}`}
       >
@@ -33,7 +33,7 @@ const ChooseUs = ({ data }) => {
         >
           Reviews
         </h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col lg:flex-row">
           <div>
             {data?.allGooglePlacesReview?.edges.map(
               ({ node: { profile_photo_url, author_name, rating, text } }) => (
@@ -42,7 +42,9 @@ const ChooseUs = ({ data }) => {
                   <div className="px-6">
                     <div className="flex">
                       <h3 className="font-bold mb-3 mr-3">{author_name}</h3>{" "}
-                      {rating}
+                      {[...Array(rating)].map(() => (
+                        <FaStar />
+                      ))}
                     </div>
                     <p>{text}</p>
                   </div>
@@ -50,7 +52,10 @@ const ChooseUs = ({ data }) => {
               )
             )}
           </div>
-          <img src={fusioneContadino} className="choose_us__img" />
+          <img
+            src={fusioneContadino}
+            className="choose_us__img mt-10 lg:mt-0"
+          />
         </div>
       </div>
     </div>

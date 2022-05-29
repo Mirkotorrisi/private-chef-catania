@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 import Logo from "/public/static/svg/logo_black_1.svg";
 import Logotipo from "/public/static/svg/logotipo.svg";
 
-const Navbar = () => {
+const Navbar = ({ customActiveLink }) => {
   const [menuShow, setMenu] = React.useState(false);
   const showMenu = () => setMenu(!menuShow);
 
@@ -45,9 +45,17 @@ const Navbar = () => {
             !menuShow ? "hidden" : ""
           } lg:flex flex-col lg:flex-row  mt-5 lg:mt-0 lg:px-36`}
         >
-          <NavLink link="/#menu">Sample Menu</NavLink>
+          <NavLink customActive={customActiveLink === "menu"} link="/menu">
+            Sample Menu
+          </NavLink>
           <NavLink link="/#contact">Contact us</NavLink>
           <NavLink link="/#about">About</NavLink>
+          <NavLink
+            customActive={customActiveLink === "gallery"}
+            link="/gallery"
+          >
+            Gallery
+          </NavLink>
         </div>
       </div>
     </nav>

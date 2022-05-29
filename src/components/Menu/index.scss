@@ -11,7 +11,7 @@
   place-items: center;
   z-index: 2;
   padding: 2rem;
-  width: 936px;
+  width: 100%;
   max-width: 80vw;
   background: linear-gradient(
         to right,
@@ -31,7 +31,7 @@
   background-repeat: no-repeat;
   background-size: 100px 100px;
   &__title {
-    width: 936px;
+    width: 100%;
     max-width: 80vw;
     font-size: 2.5rem;
     font-family: "UtopiaRegular";
