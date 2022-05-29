@@ -2,6 +2,7 @@ import * as React from "react";
 import "./index.scss";
 import { useRef } from "react";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import fusioneContadino from "../../../public/images/fusione_contadino.jpeg";
 
 const ChooseUs = ({ data }) => {
   console.log("🚀 ~ file: index.jsx ~ line 7 ~ ChooseUs ~ data", data);
@@ -32,20 +33,25 @@ const ChooseUs = ({ data }) => {
         >
           Reviews
         </h1>
-        {data?.allGooglePlacesReview?.edges.map(
-          ({ node: { profile_photo_url, author_name, rating, text } }) => (
-            <li className="flex my-3">
-              <img src={profile_photo_url} />{" "}
-              <div className="px-6">
-                <div className="flex">
-                  <h3 className="font-bold mb-3 mr-3">{author_name}</h3>{" "}
-                  {rating}
-                </div>
-                <p>{text}</p>
-              </div>
-            </li>
-          )
-        )}
+        <div className="flex justify-between">
+          <div>
+            {data?.allGooglePlacesReview?.edges.map(
+              ({ node: { profile_photo_url, author_name, rating, text } }) => (
+                <li className="flex my-3">
+                  <img src={profile_photo_url} />{" "}
+                  <div className="px-6">
+                    <div className="flex">
+                      <h3 className="font-bold mb-3 mr-3">{author_name}</h3>{" "}
+                      {rating}
+                    </div>
+                    <p>{text}</p>
+                  </div>
+                </li>
+              )
+            )}
+          </div>
+          <img src={fusioneContadino} className="choose_us__img" />
+        </div>
       </div>
     </div>
   );
