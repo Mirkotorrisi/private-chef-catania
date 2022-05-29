@@ -18,7 +18,7 @@ import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt";
 
 const Footer = () => (
   <div className="footer py-10">
-    <div className="footer__columns flex justify-between align-center w-1/2  m-auto flex-col xl:flex-row">
+    <div className="footer__columns flex justify-between align-center lg:w-1/2  m-auto ">
       <a href={GOOGLE}>
         <i className="fab fa-google" />
         <FaGoogle />
