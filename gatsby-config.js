@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -24,7 +28,7 @@ module.exports = {
       resolve: `gatsby-source-google-places`,
       options: {
         placeIds: ["ChIJi7oI6UT9ExMRmBE2I9R2GS4"],
-        apiKey: "AIzaSyClkBQB2rqUPfNjMWvrBXTjNuQ6pThttH8",
+        apiKey: process.env.GOOGLE_API_KEY,
         language: "en-US", // optional, defaults to en-US
       },
     },
