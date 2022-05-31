@@ -11,7 +11,7 @@ const ChooseUs = ({
 }) => {
   const ref = useRef(null);
   const isOnScreen = useOnScreen(ref);
-
+  console.log(allGooglePlacesReview);
   return (
     <div className={`py-20 lg:py-32 choose_us `} id="choose_us" ref={ref}>
       <p className={`choose_us__bio p-22 p-0:lg animation_in`}>
@@ -37,19 +37,31 @@ const ChooseUs = ({
           <div>
             {allGooglePlacesReview?.edges.map(
               (
-                { node: { profile_photo_url, author_name, rating, text } },
+                {
+                  node: {
+                    profile_photo_url,
+                    author_name,
+                    author_url,
+                    rating,
+                    text,
+                    relative_time_description,
+                  },
+                },
                 index
               ) => (
                 <li className="flex my-3" key={`review${index}`}>
                   <img src={profile_photo_url} />{" "}
                   <div className="px-6">
                     <div className="flex">
-                      <h3 className="font-bold mb-3 mr-3">{author_name}</h3>{" "}
+                      <a href={author_url}>
+                        <h3 className="font-bold mb-3 mr-3">{author_name}</h3>
+                      </a>
                       {[...Array(rating)].map((_, i) => (
                         <FaStar key={`star${i}`} />
                       ))}
                     </div>
                     <p>{text}</p>
+                    <p className="my-3 italic">{relative_time_description}</p>
                   </div>
                 </li>
               )

@@ -44,10 +44,11 @@ export const query = graphql`
     allGooglePlacesReview {
       edges {
         node {
-          author_name
           rating
+          relative_time_description
           text
-          profile_photo_url
+          author_url
+          author_name
         }
       }
     }
