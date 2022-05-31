@@ -77,9 +77,6 @@
   }
 
   .cta {
-    margin-top: 5rem;
-    padding: 1rem 2rem;
-    color: #ffffff;
     &:hover {
       cursor: pointer;
     }
@@ -134,9 +131,8 @@
 }
 
 .thanks {
-  color: var(--lemon-primary);
+  color: var(--salmon-primary);
   font-weight: 700;
-  text-shadow: 1px 1px 1px #000000;
 }
 /* SUCCESS */
 
@@ -154,7 +150,7 @@
     position: relative;
     border-radius: 50%;
     box-sizing: content-box;
-    border: 1px solid #00ff08;
+    border: 2px solid var(--white);
     -webkit-user-select: none; /* Chrome all / Safari all */
     -moz-user-select: none; /* Firefox all */
     -ms-user-select: none; /* IE 10+ */
@@ -170,7 +166,7 @@
     &::after {
       top: 0;
       left: 7.5px;
-      width: 15px;
+      width: 20px;
       transform-origin: 0 50%;
       border-radius: 0 100px 100px 0;
       animation: rotate-circle 4.25s ease-in;
@@ -186,8 +182,8 @@
     }
 
     .icon-line {
-      height: 1.25px;
-      background-color: #4caf50;
+      height: 2.5px;
+      background-color: var(--white);
       display: block;
       border-radius: 2px;
       position: absolute;
@@ -219,7 +215,7 @@
       border-radius: 50%;
       position: absolute;
       box-sizing: content-box;
-      border: 1px solid rgba(76, 175, 80, 0.5);
+      border: 1px solid var(--white);
     }
 
     .icon-fix {

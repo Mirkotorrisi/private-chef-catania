@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { menu } from "../resources";
+import { graphql } from "gatsby";
 import { NavProvider } from "../context/NavContext";
 import { FaWindowClose } from "@react-icons/all-files/fa/FaWindowClose";
 import "./gallery.scss";
@@ -10,7 +10,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 // markup
-const GalleryPage = () => {
+const GalleryPage = ({ data }) => {
   const [selectedImage, setselectedImage] = useState();
   const closeModal = () => {
     setselectedImage(undefined);
@@ -25,17 +25,19 @@ const GalleryPage = () => {
           Gallery
         </h1>
         <div className="gallery mt-20">
-          {menu.map(({ image }) => (
-            <img
-              src={`/images/${image}.jpg`}
-              className="gallery__thumbnail"
-              onClick={() => setselectedImage(image)}
-            />
-          ))}
+          {data.contentfulGallery.gallery_images.map(
+            ({ file: { url } }, index) => (
+              <img
+                src={url}
+                className="gallery__thumbnail"
+                onClick={() => setselectedImage(index + 1)}
+              />
+            )
+          )}
         </div>
         <div className="flex justify-center">
           <a href="/#contact" className="my-20">
-            <button className="cta primary">Contact us</button>
+            <button className="cta primary">Reserve now</button>
           </a>
         </div>
       </NavProvider>
@@ -54,19 +56,14 @@ const GalleryPage = () => {
 
 export default GalleryPage;
 
-//change this query with menu query
-
-// export const query = graphql`
-//   query MyQuery {
-//     allGooglePlacesReview {
-//       edges {
-//         node {
-//           author_name
-//           rating
-//           text
-//           profile_photo_url
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query GalleryQuery {
+    contentfulGallery {
+      gallery_images {
+        file {
+          url
+        }
+      }
+    }
+  }
+`;

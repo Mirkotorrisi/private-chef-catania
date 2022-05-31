@@ -90,42 +90,75 @@
 }
 
 .cta {
-  border-radius: 2px;
-  border: 2px solid var(--salmon-primary);
-  padding: 0.5rem 2rem;
-  color: var(--salmon-primary);
-  font-weight: 700;
-  transition: all 0.25s;
-
-  &:hover {
-    background-color: var(--salmon-primary);
-    border: 2px solid var(--salmon-primary);
-    color: var(--white);
-  }
-  &.primary {
-    background-position: 100% 100%;
-
-    background-color: var(--salmon-primary);
-    border: 2px solid var(--salmon-primary);
-
-    background-image: radial-gradient(
-        at 0% 0%,
-        var(--salmon-primary-light) 10%,
-        transparent 50%
-      ),
-      radial-gradient(at -500% 0%, hsla(5, 78%, 66%, 1) 60%, transparent 80%),
-      radial-gradient(at 200% 100%, var(--salmon-primary) 60%, transparent 40%);
-    background-size: 200% 200%;
-    color: #ffffff;
-    transition: all 0.25s;
-    text-shadow: #333333 0.5px 1px 0.5px;
-    &:hover {
-      background-color: var(--salmon-primary);
-      border: 2px solid var(--salmon-primary);
-      background-position: 0 0;
-    }
-  }
+  padding: 16px 48px;
+  background: none;
+  border: 2px solid var(--black);
+  color: var(--black);
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
 }
+
+.cta::before,
+.cta::after {
+  --offset: 2px;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.cta::before {
+  border-top: 2px solid var(--salmon-primary);
+  border-left: 2px solid var(--salmon-primary);
+  top: var(--offset);
+  left: var(--offset);
+}
+
+.cta::after {
+  border-bottom: 2px solid var(--salmon-primary);
+  border-right: 2px solid var(--salmon-primary);
+  bottom: var(--offset);
+  right: var(--offset);
+}
+
+.cta:hover {
+  background-color: var(--salmon-primary);
+  color: #fff;
+  transition-delay: 0.3s;
+}
+
+.cta:hover::before,
+.cta:hover::after {
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  opacity: 1;
+}
+
+.primary {
+  color: #ffffff;
+  background-color: var(--salmon-primary);
+  text-shadow: 1px 1px 1px var(--black);
+}
+
+.primary::before {
+  border-color: #fff3db;
+}
+
+.primary::after {
+  border-color: #fff3db;
+}
+
+.primary:hover {
+  background-color: #fff3db;
+  color: var(--salmon-primary);
+  text-shadow: 1px 1px 1px #fff3db;
+}
+
 .videoBackground {
   position: absolute !important;
   width: 100%;

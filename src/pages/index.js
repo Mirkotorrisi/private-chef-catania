@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import About from "../components/About";
 import { NavProvider } from "../context/NavContext";
 
-import { Helmet } from "react-helmet";
 import "./index.scss";
 import "tailwindcss/tailwind.css";
 import "../styles/colors.scss";
@@ -23,9 +22,14 @@ const IndexPage = ({ data }) => {
           <Navbar />
           <Heading />
 
-          <ChooseUs data={data} />
+          <ChooseUs
+            allGooglePlacesReview={data.allGooglePlacesReview}
+            contentfulDescrizioneInizialeSottoIlVideo={
+              data.contentfulDescrizioneInizialeSottoIlVideo
+            }
+          />
           <ContactForm />
-          <About />
+          <About contentfulBiografiaDiFabio={data.contentfulBiografiaDiFabio} />
           <Footer />
         </div>
       </NavProvider>
@@ -44,6 +48,25 @@ export const query = graphql`
           rating
           text
           profile_photo_url
+        }
+      }
+    }
+
+    contentfulDescrizioneInizialeSottoIlVideo {
+      first_description {
+        first_description
+      }
+      second_description {
+        second_description
+      }
+    }
+    contentfulBiografiaDiFabio {
+      bio {
+        bio
+      }
+      bio_picture {
+        file {
+          url
         }
       }
     }

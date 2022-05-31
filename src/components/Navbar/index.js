@@ -2,19 +2,32 @@ import React from "react";
 import "./index.scss";
 import NavLink from "./NavLink";
 import Logo from "/public/static/svg/logo_black_1.svg";
+import ColoredLogo from "/public/static/svg/logo_color_bg_1.svg";
 import Logotipo from "/public/static/svg/logotipo.svg";
 
 const Navbar = ({ customActiveLink }) => {
   const [menuShow, setMenu] = React.useState(false);
+  const [logoHover, setLogoHover] = React.useState(false);
   const showMenu = () => setMenu(!menuShow);
 
   return (
     <nav className="navbar flex fixed items-center justify-between flex-wrap w-screen px-10 ">
-      <NavLink link="/">
-        <Logo className="navbar__logo hidden lg:inline-block" />
-        <Logotipo className="navbar__logo--small lg:hidden" />
-      </NavLink>
-
+      <div
+        onMouseEnter={() => setLogoHover(true)}
+        onMouseLeave={() => setLogoHover(false)}
+      >
+        <NavLink link="/">
+          {logoHover ? (
+            <ColoredLogo
+              className="navbar__logo hidden lg:inline-block"
+              alt="logo"
+            />
+          ) : (
+            <Logo className="navbar__logo hidden lg:inline-block" alt="logo" />
+          )}{" "}
+          <Logotipo className="navbar__logo--small lg:hidden" alt="logo" />
+        </NavLink>
+      </div>
       <div className="flex align-center justify-between lg:hidden">
         <button aria-label="menu" className="mr-10 w-0" onClick={showMenu}>
           <div
@@ -48,7 +61,7 @@ const Navbar = ({ customActiveLink }) => {
           <NavLink customActive={customActiveLink === "menu"} link="/menu">
             Sample Menu
           </NavLink>
-          <NavLink link="/#contact">Contact us</NavLink>
+          <NavLink link="/#contact">Reserve now</NavLink>
           <NavLink link="/#about">About</NavLink>
           <NavLink
             customActive={customActiveLink === "gallery"}

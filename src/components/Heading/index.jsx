@@ -26,7 +26,7 @@ const Heading = () => {
           <div className="flex justify-center w-full my-10">
             <a href="#contact" className="w-full lg:w-44">
               <button className="cta primary w-full lg:w-44 p-3">
-                Contact us
+                Reserve now
               </button>
             </a>
           </div>

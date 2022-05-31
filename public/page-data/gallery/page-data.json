@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-gallery-js",
     "path": "/gallery/",
-    "result": {"pageContext":{}},
+    "result": {"data":{"contentfulGallery":{"gallery_images":[{"file":{"url":"//images.ctfassets.net/llcdt2fu8790/QPIkGgUhdcUZahvuJY0wy/3b3272fb19964b3b5f573577d65825f5/basket.jpg"}},{"file":{"url":"//images.ctfassets.net/llcdt2fu8790/4hCZa9FBpVDOFjbIsosqst/eefe0603d7acedafbfdac3985d3bc45b/fusione.png"}},{"file":{"url":"//images.ctfassets.net/llcdt2fu8790/31HLIoLRClYG21WHVdu4Yo/d7f281dcff606148788ff347ce8ffc44/fusione_contadino.jpeg"}}]}},"pageContext":{}},
     "staticQueryHashes": []}

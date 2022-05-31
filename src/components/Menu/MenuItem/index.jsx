@@ -3,7 +3,7 @@ import { MenuItemI } from "../consts";
 import "./index.scss";
 import { useOnScreen } from "../../../hooks/useOnScreen";
 
-export const MenuItem = ({ image, name, description }) => {
+export const MenuItem = ({ name, description }) => {
   const ref = useRef();
   const isOnScreen = useOnScreen(ref);
 
@@ -15,8 +15,8 @@ export const MenuItem = ({ image, name, description }) => {
     >
       <div className={"menu-item__image  "}>
         <div className={"sliding-container"}>
-          <h3 className="menu-item__name">{name}</h3>
-          <p className="menu-item__description">{description}</p>
+          <h3 className="menu-item__name mb-3">{name}</h3>
+          <p className="menu-item__description mb-5">{description}</p>
         </div>
       </div>
     </li>

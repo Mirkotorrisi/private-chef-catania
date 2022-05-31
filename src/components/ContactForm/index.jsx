@@ -193,7 +193,7 @@ const ContactForm = () => {
           {errors["message"] && <span>Please leave us a message</span>}
           <div className={`form_row animation_${isOnScreen && "in"}`}>
             <button
-              className={`cta primary ${step}`}
+              className={`mt-20 cta primary ${step}`}
               disabled={hasErrors || hasEmpty}
             >
               <ProgressStepper step={step} />

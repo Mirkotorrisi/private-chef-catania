@@ -1,24 +1,21 @@
 .menu-item {
   &__container {
+    max-width: 550px;
     opacity: 0;
   }
 
   &__name {
     position: relative;
-    font-size: 2em;
+    font-size: 1.5em;
     width: 100%;
     text-align: center;
     font-weight: 400;
-    padding-right: 1rem;
     color: rgb(0, 0, 0);
   }
 
   &__description {
-    font-size: 1.5em;
-    color: rgb(65, 57, 57);
-    margin-top: 0.5em;
-    margin-right: 1rem;
-    margin-bottom: 1em;
+    font-size: 1.25em;
+    color: var(--black);
     text-align: center;
   }
 }
@@ -46,7 +43,7 @@
   .menu-item {
     &__name,
     &__description {
-      text-align: left;
+      text-align: center;
     }
   }
 }
