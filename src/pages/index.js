@@ -49,6 +49,7 @@ export const query = graphql`
           text
           author_url
           author_name
+          profile_photo_url
         }
       }
     }

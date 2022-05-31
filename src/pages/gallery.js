@@ -30,7 +30,7 @@ const GalleryPage = ({ data }) => {
               <img
                 src={url}
                 className="gallery__thumbnail"
-                onClick={() => setselectedImage(index + 1)}
+                onClick={() => setselectedImage(url)}
               />
             )
           )}
@@ -46,7 +46,7 @@ const GalleryPage = ({ data }) => {
           <button onClick={closeModal}>
             <FaWindowClose />
           </button>
-          <img src={`/images/${selectedImage}.jpg`} className="modal__img" />
+          <img src={selectedImage} className="modal__img" />
         </div>
       )}
       <Footer />
