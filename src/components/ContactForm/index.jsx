@@ -63,16 +63,17 @@ const ContactForm = () => {
   const hasEmpty = Object.values(form).some((value) => !value);
 
   useEffect(() => {
-    if (!window) return;
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop),
-    });
-    if (params.coockingClass) {
-      setForm({
-        ...form,
-        message:
-          "Hello, I would like to have some informations about the coocking class.",
+    if (typeof window !== "undefined") {
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
       });
+      if (params.coockingClass) {
+        setForm({
+          ...form,
+          message:
+            "Hello, I would like to have some informations about the coocking class.",
+        });
+      }
     }
   }, [window]);
   return (
