@@ -69,6 +69,12 @@ const Navbar = ({ customActiveLink }) => {
           >
             Gallery
           </NavLink>
+          <NavLink
+            customActive={customActiveLink === "coocking_class"}
+            link="/coocking_class"
+          >
+            Coocking class
+          </NavLink>
         </div>
       </div>
     </nav>

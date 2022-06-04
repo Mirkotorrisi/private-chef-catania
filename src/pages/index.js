@@ -27,6 +27,10 @@ const IndexPage = ({ data }) => {
             contentfulDescrizioneInizialeSottoIlVideo={
               data.contentfulDescrizioneInizialeSottoIlVideo
             }
+            imageForReviews={
+              data.contentfulRecensioniImmagineAccantoLeRecensioni.reviews_image
+                .file.url
+            }
           />
           <ContactForm />
           <About contentfulBiografiaDiFabio={data.contentfulBiografiaDiFabio} />
@@ -67,6 +71,13 @@ export const query = graphql`
         bio
       }
       bio_picture {
+        file {
+          url
+        }
+      }
+    }
+    contentfulRecensioniImmagineAccantoLeRecensioni {
+      reviews_image {
         file {
           url
         }

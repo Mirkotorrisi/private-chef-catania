@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import { graphql } from "gatsby";
 
 // markup
-const GalleryPage = ({ data }) => {
+const MenuPage = ({ data }) => {
   return (
     <main className="main flex-wrap">
       <title>Sample Menu - Private Chef Catania</title>
@@ -23,7 +23,7 @@ const GalleryPage = ({ data }) => {
   );
 };
 
-export default GalleryPage;
+export default MenuPage;
 
 //change this query with menu query
 

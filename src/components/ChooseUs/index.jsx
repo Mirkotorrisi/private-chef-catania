@@ -2,16 +2,15 @@ import * as React from "react";
 import "./index.scss";
 import { useRef } from "react";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import reviewsPic from "../../../public/images/reviews_pic.jpeg";
 import { FaStar } from "@react-icons/all-files/fa/FaStar";
 
 const ChooseUs = ({
   allGooglePlacesReview,
   contentfulDescrizioneInizialeSottoIlVideo,
+  imageForReviews,
 }) => {
   const ref = useRef(null);
   const isOnScreen = useOnScreen(ref);
-  console.log(allGooglePlacesReview);
   return (
     <div className={`py-20 lg:py-32 choose_us `} id="choose_us" ref={ref}>
       <p className={`choose_us__bio p-22 p-0:lg animation_in`}>
@@ -67,7 +66,7 @@ const ChooseUs = ({
               )
             )}
           </div>
-          <img src={reviewsPic} className="choose_us__img mt-10 lg:mt-0" />
+          <img src={imageForReviews} className="choose_us__img mt-10 lg:mt-0" />
         </div>
       </div>
     </div>

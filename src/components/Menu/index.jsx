@@ -6,7 +6,6 @@ import { useNav } from "../../hooks/useNav";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 const Menu = ({ menu }) => {
-  console.log("🚀 ~ file: index.jsx ~ line 9 ~ Menu ~ menu", menu);
   const ref = useNav("/#menu");
   const isOnScreen = useOnScreen(ref);
   const GenerateDishes = ({ category }) =>
