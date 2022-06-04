@@ -75,7 +75,7 @@ const ContactForm = () => {
         });
       }
     }
-  }, [window]);
+  }, []);
   return (
     <div className="contact-wrapper">
       <div className="contact-form py-20 lg:py-32" id="contact" ref={ref}>
