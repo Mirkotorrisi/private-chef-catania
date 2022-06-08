@@ -17,20 +17,9 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
     {
-      resolve: "gatsby-plugin-favicons",
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        logo: "./src/favicon/logowhite_notext.svg",
-        appName: "Private Chef Catania",
-        background: "#fff3db",
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          yandex: false,
-          windows: true,
-        },
+        icon: "src/favicon/logowhite_notext.svg",
       },
     },
     {
