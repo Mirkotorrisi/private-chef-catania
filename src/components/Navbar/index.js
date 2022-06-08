@@ -4,14 +4,25 @@ import NavLink from "./NavLink";
 import Logo from "/public/static/svg/logo_black_1.svg";
 import ColoredLogo from "/public/static/svg/logo_color_bg_1.svg";
 import Logotipo from "/public/static/svg/logotipo.svg";
+import { NavContext } from "../../context/NavContext";
 
 const Navbar = ({ customActiveLink }) => {
   const [menuShow, setMenu] = React.useState(false);
   const [logoHover, setLogoHover] = React.useState(false);
   const showMenu = () => setMenu(!menuShow);
-
+  const { activeNavLinkId } = React.useContext(NavContext);
+  console.log(
+    "🚀 ~ file: index.js ~ line 14 ~ Navbar ~ activeNavLinkId",
+    activeNavLinkId
+  );
+  const shouldHaveBg =
+    activeNavLinkId !== "/#home" && customActiveLink !== "menu";
   return (
-    <nav className="navbar flex fixed items-center justify-between flex-wrap w-screen px-10 ">
+    <nav
+      className={`navbar flex fixed items-center justify-between flex-wrap w-screen px-10 ${
+        shouldHaveBg && "background"
+      }`}
+    >
       <div
         onMouseEnter={() => setLogoHover(true)}
         onMouseLeave={() => setLogoHover(false)}

@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { MenuItemI } from "../consts";
 import "./index.scss";
 import { useOnScreen } from "../../../hooks/useOnScreen";
 

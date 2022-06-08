@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./index.scss";
 import { useNav } from "../../hooks/useNav";
-import { useOnScreen } from "../../hooks/useOnScreen";
 import videoFusione from "../../../public/images/videofusione2.mp4";
 
 const Heading = () => {

@@ -31,6 +31,7 @@ const GalleryPage = ({ data }) => {
                 src={url}
                 className="gallery__thumbnail"
                 onClick={() => setselectedImage(url)}
+                alt={`gallery food number ${index}`}
               />
             )
           )}
@@ -46,7 +47,11 @@ const GalleryPage = ({ data }) => {
           <button onClick={closeModal}>
             <FaWindowClose />
           </button>
-          <img src={selectedImage} className="modal__img" />
+          <img
+            src={selectedImage}
+            className="modal__img"
+            alt="modal selected food"
+          />
         </div>
       )}
       <Footer />

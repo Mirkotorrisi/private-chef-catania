@@ -49,7 +49,10 @@ const ChooseUs = ({
                 index
               ) => (
                 <li className="flex my-3" key={`review${index}`}>
-                  <img src={profile_photo_url} />{" "}
+                  <img
+                    src={profile_photo_url}
+                    alt="review's author profile pic"
+                  />{" "}
                   <div className="px-6">
                     <div className="flex">
                       <a href={author_url}>
@@ -66,7 +69,11 @@ const ChooseUs = ({
               )
             )}
           </div>
-          <img src={imageForReviews} className="choose_us__img mt-10 lg:mt-0" />
+          <img
+            src={imageForReviews}
+            alt="some guests with our head chef"
+            className="choose_us__img mt-10 lg:mt-0"
+          />
         </div>
       </div>
     </div>

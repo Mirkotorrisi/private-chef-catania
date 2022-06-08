@@ -2,7 +2,7 @@
   color: var(--black);
   font-weight: 700;
   z-index: 1000;
-
+  transition: all 1s;
   &__logo {
     height: 7.5rem;
     &--small {
@@ -12,19 +12,14 @@
       height: 7.55rem;
     }
   }
+  &.background {
+    background-color: #fff3dbeb;
+  }
 }
 .nav__item {
-  background-size: 200% 200%;
-  background-position: 0 0%;
-
   color: var(--black);
-  transition: all 0.2s ease-in;
-  &__block {
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-  }
+
   &:hover {
-    background-position: 0% 100%;
     color: var(--salmon-primary);
     text-shadow: none;
   }

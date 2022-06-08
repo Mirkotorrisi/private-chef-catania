@@ -1,49 +1,59 @@
-import * as React from "react";
-import { useMemo } from "react";
+import React, { useState } from "react";
 import { MenuItem } from "./MenuItem/index";
 import "./index.scss";
 import { useNav } from "../../hooks/useNav";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 const Menu = ({ menu }) => {
+  console.log("🚀 ~ file: index.jsx ~ line 8 ~ Menu ~ menu", menu);
   const ref = useNav("/#menu");
   const isOnScreen = useOnScreen(ref);
-  const GenerateDishes = ({ category }) =>
-    useMemo(
-      () =>
-        category?.map(({ name, description }, index) => (
-          <MenuItem
-            name={name}
-            description={description.description}
-            key={`${index}${name}`}
-          />
-        )),
-      []
-    );
-  const GenerateSection = ({ category, categoryName }) =>
-    category?.length ? (
-      <>
-        <h2 className="menu-category__title mb-10 mt-5">{categoryName}</h2>
-        <GenerateDishes category={category} />
-      </>
-    ) : null;
+  const [selected, setSelected] = useState({
+    menu: menu.appetizers,
+    name: "Appetizers",
+  });
+  const [opacity, setOpacity] = useState(1);
+
+  const handleSelected = ({ menu, name }) => {
+    setOpacity(0);
+    setSelected({ menu, name });
+    setOpacity(1);
+  };
   return (
     <div className="menu_container " id="menu" ref={ref}>
       <h1 className={`menu__title mt-44 mb-20 animation_${isOnScreen && "in"}`}>
-        Sample Winter Menu
+        {menu.name}
       </h1>
-      <ul className="menu">
-        <GenerateSection category={menu.appetizers} categoryName="Appetizers" />
-        <GenerateSection
-          category={menu.firstCount}
-          categoryName="First Count"
-        />
-        <GenerateSection
-          category={menu.secondCount}
-          categoryName="Second Count"
-        />
-        <GenerateSection category={menu.barbecue} categoryName="Barbecue" />
-        <GenerateSection category={menu.desserts} categoryName="Desserts" />
+      <ul className="flex justify-between w-9/12 lg:w-1/2 overflow-x-scroll mb-5">
+        {[
+          { menu: menu.firstCount, name: "First Courses" },
+          { menu: menu.secondCount, name: "Second Courses" },
+          { menu: menu.barbecue, name: "Barbecue" },
+          { menu: menu.dessert, name: "Desserts" },
+          { menu: menu.wineTasting, name: "Wine tasting" },
+        ].map(({ menu, name }) => (
+          <li>
+            <button
+              className={`menu__selectors mr-3 ${
+                selected.name === name && "selected"
+              }`}
+              onClick={() => handleSelected({ menu, name })}
+            >
+              {name}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <ul className={`menu `}>
+        <div style={{ opacity, transition: "all 1s" }}>
+          {selected?.menu?.map(({ name, description }, index) => (
+            <MenuItem
+              name={name}
+              description={description?.description}
+              key={`${index}${name}`}
+            />
+          ))}
+        </div>
       </ul>
       <div className="flex justify-center">
         <a href="/#contact" className="my-20">

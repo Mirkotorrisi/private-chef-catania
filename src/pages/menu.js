@@ -30,25 +30,31 @@ export default MenuPage;
 export const query = graphql`
   query MenuQuery {
     contentfulMenu {
+      wineTasting {
+        name
+        description {
+          description
+        }
+      }
+      appetizers {
+        name
+        description {
+          description
+        }
+      }
       barbecue {
         description {
           description
         }
         name
       }
-      appetizers {
+      firstCount {
+        name
         description {
           description
         }
-        name
       }
       dessert {
-        description {
-          description
-        }
-        name
-      }
-      firstCount {
         description {
           description
         }
@@ -60,6 +66,7 @@ export const query = graphql`
         }
         name
       }
+      name
     }
   }
 `;
