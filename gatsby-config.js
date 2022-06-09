@@ -17,6 +17,14 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://privatechefcatania.com",
+        sitemap: "https://privatechefcatania.com/sitemap/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: "src/favicon/logowhite_notext.svg",

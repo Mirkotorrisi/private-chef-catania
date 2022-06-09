@@ -11,12 +11,53 @@ import "tailwindcss/tailwind.css";
 import "../styles/colors.scss";
 import Navbar from "../components/Navbar";
 import { graphql } from "gatsby";
-
+import pitrudda from "../../public/images/pitrudda.jpg";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import { Helmet } from "react-helmet";
 // markup
 const IndexPage = ({ data }) => {
   return (
     <main className="main flex-wrap">
-      <title>Private Chef Catania</title>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Private chef Catania, your private chef at home. We deliver food and beverage experience in your preferred location. Cooking class, wine tasting, catering. Your home chef in Sicily. Restaurant at home."
+        />
+        <meta name="google-site-verification" content="" />
+        <meta
+          name="keywords"
+          content="food wine beverage experience taste chef cooking restaurant private cook homechef homerestaurant sommelier cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
+        />
+        <title>Private Chef Catania - Your personal chef</title>
+      </Helmet>
+      {/* <GatsbySeo
+        title="Private Chef Catania - Your personal chef"
+        description="Private chef based in Sicily, gourmet dinners at home. Food and beverage experience at home. Wine Tasting, cooking class."
+        canonical="https://privatechefcatania.come/"
+        openGraph={{
+          url: "https://privatechefcatania.come",
+          title: "Private Chef Catania - Your personal chef",
+          description:
+            "Private chef based in Sicily, gourmet dinners at home. Food and beverage experience at home. Wine Tasting, cooking class.",
+          images: [
+            {
+              url: pitrudda,
+              width: 800,
+              height: 600,
+              alt: "Pitrudda da Trizza - Appetizer",
+            },
+          ],
+          locale: "en_GB",
+          language: "en",
+          site_name: "Private Chef Catania",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@privatechefcatania",
+          cardType: "summary_large_image",
+        }}
+      /> */}
       <NavProvider>
         <div style={{ zIndex: 1000 }}>
           <Navbar />

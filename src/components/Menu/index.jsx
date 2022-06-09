@@ -26,6 +26,7 @@ const Menu = ({ menu }) => {
       </h1>
       <ul className="flex justify-between w-9/12 lg:w-1/2 overflow-x-scroll mb-5">
         {[
+          { menu: menu.appetizers, name: "Appetizers" },
           { menu: menu.firstCount, name: "First Courses" },
           { menu: menu.secondCount, name: "Second Courses" },
           { menu: menu.barbecue, name: "Barbecue" },

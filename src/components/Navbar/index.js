@@ -11,10 +11,6 @@ const Navbar = ({ customActiveLink }) => {
   const [logoHover, setLogoHover] = React.useState(false);
   const showMenu = () => setMenu(!menuShow);
   const { activeNavLinkId } = React.useContext(NavContext);
-  console.log(
-    "🚀 ~ file: index.js ~ line 14 ~ Navbar ~ activeNavLinkId",
-    activeNavLinkId
-  );
   const shouldHaveBg =
     activeNavLinkId !== "/#home" && customActiveLink !== "menu";
   return (
@@ -70,7 +66,7 @@ const Navbar = ({ customActiveLink }) => {
           } lg:flex flex-col lg:flex-row  mt-5 lg:mt-0 lg:px-36`}
         >
           <NavLink customActive={customActiveLink === "menu"} link="/menu">
-            Sample Menu
+            Menu & Wines
           </NavLink>
           <NavLink link="/#contact">Reserve now</NavLink>
           <NavLink link="/#about">About</NavLink>
@@ -81,10 +77,10 @@ const Navbar = ({ customActiveLink }) => {
             Gallery
           </NavLink>
           <NavLink
-            customActive={customActiveLink === "coocking_class"}
-            link="/coocking_class"
+            customActive={customActiveLink === "cooking_class"}
+            link="/cooking_class"
           >
-            Coocking class
+            Cooking class
           </NavLink>
         </div>
       </div>

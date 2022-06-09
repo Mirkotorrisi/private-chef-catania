@@ -3,17 +3,19 @@ import "./index.scss";
 import { useRef } from "react";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { FaStar } from "@react-icons/all-files/fa/FaStar";
+import { useNav } from "../../hooks/useNav";
 
 const ChooseUs = ({
   allGooglePlacesReview,
   contentfulDescrizioneInizialeSottoIlVideo,
   imageForReviews,
 }) => {
+  const refForNav = useNav("/#choose_us");
   const ref = useRef(null);
   const isOnScreen = useOnScreen(ref);
   return (
     <div className={`py-20 lg:py-32 choose_us `} id="choose_us" ref={ref}>
-      <p className={`choose_us__bio p-22 p-0:lg animation_in`}>
+      <p className={`choose_us__bio p-22 p-0:lg animation_in`} ref={refForNav}>
         {
           contentfulDescrizioneInizialeSottoIlVideo.first_description
             .first_description

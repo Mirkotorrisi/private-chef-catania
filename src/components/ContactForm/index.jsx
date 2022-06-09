@@ -67,11 +67,11 @@ const ContactForm = () => {
       const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
       });
-      if (params.coockingClass) {
+      if (params.cookingClass) {
         setForm({
           ...form,
           message:
-            "Hello, I would like to have some informations about the coocking class.",
+            "Hello, I would like to have some informations about the cooking class.",
         });
       }
     }

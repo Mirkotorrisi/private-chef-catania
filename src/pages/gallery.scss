@@ -1,11 +1,13 @@
 .gallery {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: auto;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
-  gap: 2.5%;
   width: 964px;
   max-width: 80vw;
+  &_container {
+    min-height: fit-content;
+  }
   &__title {
     margin: auto;
     max-width: 80vw;

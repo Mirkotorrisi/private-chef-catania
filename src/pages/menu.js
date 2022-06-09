@@ -8,12 +8,25 @@ import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 
 // markup
 const MenuPage = ({ data }) => {
   return (
     <main className="main flex-wrap">
-      <title>Sample Menu - Private Chef Catania</title>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Private chef Catania menu and wines, take a loot at some of the best dishes that our private chef could prepare for you!"
+        />
+        <meta name="google-site-verification" content="" />
+        <meta
+          name="keywords"
+          content="menu wines chef cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
+        />
+        <title>Menu &and; Wines - Private Chef Catania</title>
+      </Helmet>
       <NavProvider>
         <Navbar customActiveLink={"menu"} />
         <Menu menu={data.contentfulMenu} />
