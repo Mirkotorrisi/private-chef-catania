@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
     data.allGooglePlacesReview.edges[0].node;
   const snippet = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": "LocalBusiness",
     image: [basket, pitrudda, battuta],
     name: "Private Chef Catania",
     address: {
@@ -53,6 +53,7 @@ const IndexPage = ({ data }) => {
       ratingValue,
       ratingCount,
       reviewCount,
+      bestRating: 5,
     },
     url: "http://www.privatechefcatania.com",
     telephone: PHONE_NUMBER_CLEAN,

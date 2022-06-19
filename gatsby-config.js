@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: "src/favicon/logowhite_notext.svg",
+        icon: "src/favicon/favicon.png",
       },
     },
     {
