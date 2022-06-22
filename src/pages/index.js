@@ -69,14 +69,14 @@ const IndexPage = ({ data }) => {
         <meta lang="en-GB" />
         <meta
           name="description"
-          content="Private chef Catania, your private chef at home. We deliver food and beverage experience in your preferred location. Cooking class, wine tasting, catering. Your home chef in Sicily. Restaurant at home."
+          content="Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home."
         />
 
         <meta
           name="keywords"
           content="food wine beverage experience taste chef cooking restaurant private cook homechef homerestaurant sommelier cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
         />
-        <title>Private Chef Catania - Your personal chef</title>
+        <title>Private Chef Catania - Hire your personal chef in Sicily</title>
       </Helmet>
       <NavProvider>
         <div style={{ zIndex: 1000 }}>
