@@ -18,8 +18,8 @@ const Heading = () => {
         </h1>
         <div className="flex items-center flex-col justify-center px-6 my-5">
           <h1 className="subtitle">
-            We will provide you the{" "}
-            <span className="font-bold">best experiences</span> in your{" "}
+            Hire now your
+            <span className="font-bold">personal chef</span> in your{" "}
             <span className="font-bold">preferred location</span>.
           </h1>
           <div className="flex justify-center w-full my-10">
