@@ -55,10 +55,10 @@ const IndexPage = ({ data }) => {
       reviewCount,
       bestRating: 5,
     },
-    url: "http://www.privatechefcatania.com",
+    url: "https://privatechefcatania.com",
     telephone: PHONE_NUMBER_CLEAN,
     servesCuisine: "Sicilian, Gourmet, Italian, European",
-    menu: "http://www.privatechefcatania.com/menu",
+    menu: "https://privatechefcatania.com/menu",
     acceptsReservations: "True",
   };
   const script = helmetJsonLdProp(snippet);
