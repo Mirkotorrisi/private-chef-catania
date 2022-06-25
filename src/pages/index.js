@@ -89,10 +89,16 @@ const IndexPage = ({ data }) => {
             "Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home.",
           images: [
             {
-              url: data.contentfulGallery.gallery_images[0].file.url,
+              url: pitrudda,
               width: 800,
               height: 600,
-              alt: "Home preview",
+              alt: "Pitrudda da Trizza",
+            },
+            {
+              url: basket,
+              width: 800,
+              height: 600,
+              alt: "U panaru",
             },
           ],
           locale: "en_GB",

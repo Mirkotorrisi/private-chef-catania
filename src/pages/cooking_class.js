@@ -39,7 +39,7 @@ const CookingClassPage = ({ data }) => {
             "Cooking lessons from a high experienced chef. Learn to cook the most advanced gourmet dishes.",
           images: [
             {
-              url: image[3].file.url,
+              url: image[0].file.url,
               width: 800,
               height: 600,
               alt: "Cooking class preview",
