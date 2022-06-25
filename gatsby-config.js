@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.privatechefcatania.com",
+    siteUrl: "https://privatechefcatania.com",
     title: "Private Chef Catania",
   },
   plugins: [
@@ -28,6 +28,14 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: "src/favicon/favicon.png",
+        background_color: `#ed7568`,
+        theme_color: `#ed7568`,
+        name: `Private Chef Catania`,
+        short_name: `Private Chef Catania`,
+        description: `Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home.`,
+        lang: `en`,
+        display: `standalone`,
+        start_url: `/`,
       },
     },
     {

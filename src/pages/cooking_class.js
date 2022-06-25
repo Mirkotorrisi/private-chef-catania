@@ -20,16 +20,15 @@ const CookingClassPage = ({ data }) => {
         <meta charSet="utf-8" />
         <meta
           name="description"
-          content="Private chef Catania cooking class description"
+          content="Cooking lessons from a high experienced chef. Learn to cook the most advanced gourmet dishes."
         />
-        <meta name="google-site-verification" content="" />
         <meta
           name="keywords"
           content="cooking class lessons chef teacher cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
         />
         <title>Cooking Class - Private Chef Catania</title>
       </Helmet>
-      {/* <GatsbySeo
+      <GatsbySeo
         title="Cooking Class - Private Chef Catania"
         description="Cooking lessons from a high experienced chef. Learn to cook the most advanced gourmet dishes."
         canonical="https://privatechefcatania.com/cooking_class"
@@ -40,7 +39,7 @@ const CookingClassPage = ({ data }) => {
             "Cooking lessons from a high experienced chef. Learn to cook the most advanced gourmet dishes.",
           images: [
             {
-              url: image[0].file.url,
+              url: image[3].file.url,
               width: 800,
               height: 600,
               alt: "Cooking class preview",
@@ -55,7 +54,7 @@ const CookingClassPage = ({ data }) => {
           site: "@privatechefcatania",
           cardType: "summary_large_image",
         }}
-      /> */}
+      />
       <NavProvider>
         <Navbar customActiveLink={"cooking_class"} />
         <h1 className="gallery__title mt-20 lg:mt-44" id="cooking_class">

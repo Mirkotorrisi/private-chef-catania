@@ -78,6 +78,33 @@ const IndexPage = ({ data }) => {
         />
         <title>Private Chef Catania - Hire your personal chef in Sicily</title>
       </Helmet>
+      <GatsbySeo
+        title="Private Chef Catania - Hire your personal chef in Sicily"
+        description="Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home."
+        canonical="https://privatechefcatania.com"
+        openGraph={{
+          url: "https://privatechefcatania.com",
+          title: "Private Chef Catania - Hire your personal chef in Sicily",
+          description:
+            "Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home.",
+          images: [
+            {
+              url: data.contentfulGallery.gallery_images[0].file.url,
+              width: 800,
+              height: 600,
+              alt: "Home preview",
+            },
+          ],
+          locale: "en_GB",
+          language: "en",
+          site_name: "Private Chef Catania",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@privatechefcatania",
+          cardType: "summary_large_image",
+        }}
+      />
       <NavProvider>
         <div style={{ zIndex: 1000 }}>
           <Navbar />

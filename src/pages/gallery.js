@@ -23,14 +23,13 @@ const GalleryPage = ({ data }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="description" content="Private chef Catania gallery page" />
-        <meta name="google-site-verification" content="" />
         <meta
           name="keywords"
           content="cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
         />
         <title>Gallery - Private Chef Catania</title>
       </Helmet>
-      {/* <GatsbySeo
+      <GatsbySeo
         title="Gallery - Private Chef Catania"
         description="Some of the dishes prepared from Private Chef Catania for his guests"
         canonical="https://privatechefcatania.com/gallery"
@@ -41,7 +40,7 @@ const GalleryPage = ({ data }) => {
             "Some of the dishes prepared from Private Chef Catania for his guests",
           images: [
             {
-              url: data.contentfulGallery.gallery_images[0].file.url,
+              url: data.contentfulGallery.gallery_images[2].file.url,
               width: 800,
               height: 600,
               alt: "Gallery preview",
@@ -56,7 +55,7 @@ const GalleryPage = ({ data }) => {
           site: "@privatechefcatania",
           cardType: "summary_large_image",
         }}
-      /> */}
+      />
 
       <NavProvider>
         <Navbar customActiveLink={"gallery"} />
