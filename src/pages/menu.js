@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
-
+import image from "../../public/images/gambero.jpg";
 // markup
 const MenuPage = ({ data }) => {
   return (
@@ -38,7 +38,7 @@ const MenuPage = ({ data }) => {
             "Private chef Catania menu and wines, take a loot at some of the best dishes that our private chef could prepare for you in your home!",
           images: [
             {
-              url: data.contentfulGallery.gallery_images[1].file.url,
+              url: image,
               width: 800,
               height: 600,
               alt: "Menu preview",
