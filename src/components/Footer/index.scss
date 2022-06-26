@@ -18,5 +18,8 @@
     width: 100%;
     text-align: center;
     border-top: 1px solid var(--white);
+    .privacyPolicy {
+      text-decoration: underline;
+    }
   }
 }

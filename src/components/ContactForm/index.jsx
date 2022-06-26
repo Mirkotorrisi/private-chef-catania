@@ -212,6 +212,15 @@ const ContactForm = () => {
               <ProgressStepper step={step} />
             </button>
           </div>
+          <i className="disclaimer">
+            By sending your message you agree with our{" "}
+            <a
+              href="https://www.iubenda.com/privacy-policy/88862942"
+              className="underline"
+            >
+              privacy policy
+            </a>
+          </i>
         </form>
         {step === SUCCESS && (
           <h2 className="thanks animation_in mt-2">

@@ -13,14 +13,12 @@ const Heading = () => {
       </video>
       <header className="header w-screen h-screen" ref={ref}>
         <h1 className="header__title my-12 px-3 lg:p-0">
-          <span>Food &amp; beverage</span> <span>experience</span>{" "}
+          <span>Your</span> <span>personal</span> <span>chef</span>{" "}
           <span>at home</span>
         </h1>
         <div className="flex items-center flex-col justify-center px-6 my-5">
           <h1 className="subtitle">
-            Hire now your
-            <span className="font-bold">personal chef</span> in your{" "}
-            <span className="font-bold">preferred location</span>.
+            Food and beverage experience for your private event
           </h1>
           <div className="flex justify-center w-full my-10">
             <a href="#contact" className="w-full lg:w-44">

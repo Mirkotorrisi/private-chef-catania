@@ -43,9 +43,9 @@
       animation: fadeIn 0.5s;
       animation-fill-mode: forwards;
     }
-    @for $i from 1 through 3 {
+    @for $i from 1 through 4 {
       span:nth-child(#{$i}n) {
-        animation-delay: #{$i * 0.5}s;
+        animation-delay: #{$i * 0.35}s;
       }
     }
 
@@ -62,6 +62,10 @@
     margin-top: 0;
     font-size: 1.5em;
     font-family: "Open Sans Condensed", sans-serif;
+    animation: slide-in-left 0.5s linear;
+    animation-delay: 1.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
   }
   &__image {
     padding: 0;

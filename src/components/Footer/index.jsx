@@ -43,8 +43,14 @@ const Footer = () => (
     </div>
     <div className="footer__credits mt-10 pt-10">
       <p>Private Chef Catania</p>
-      <p>P.Iva 1234567890</p>
+      <p>P.Iva 05941450875</p>
       <p>Via duca degli abruzzi 163, 95030, S. G. La Punta CT</p>
+      <a
+        href="https://www.iubenda.com/privacy-policy/88862942"
+        className="privacyPolicy"
+      >
+        Privacy policy
+      </a>
       <p className="mt-10">
         Developed by
         <a href="https://www.linkedin.com/in/mirko-torrisi/"> Mirko Torrisi</a>
