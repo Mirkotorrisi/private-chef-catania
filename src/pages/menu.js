@@ -41,35 +41,17 @@ export default MenuPage;
 export const query = graphql`
   query MenuQuery {
     contentfulMenu {
-      wineTasting {
-        name
-        description {
-          description
-        }
-      }
       appetizers {
         name
         description {
           description
         }
       }
-      barbecue {
-        description {
-          description
-        }
-        name
-      }
       firstCount {
         name
         description {
           description
         }
-      }
-      dessert {
-        description {
-          description
-        }
-        name
       }
       secondCount {
         description {

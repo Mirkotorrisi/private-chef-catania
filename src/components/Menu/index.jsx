@@ -5,6 +5,7 @@ import { useNav } from "../../hooks/useNav";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 const Menu = ({ menu }) => {
+  console.log("🚀 ~ file: index.jsx ~ line 8 ~ Menu ~ menu", menu);
   const ref = useNav("/#menu");
   const isOnScreen = useOnScreen(ref);
   const [selected, setSelected] = useState({
@@ -25,12 +26,10 @@ const Menu = ({ menu }) => {
       </h1>
       <ul className="flex justify-between w-9/12 lg:w-1/2 overflow-x-scroll mb-5">
         {[
-          { menu: menu.appetizers, name: "Appetizers" },
-          { menu: menu.firstCount, name: "First Courses" },
-          { menu: menu.secondCount, name: "Second Courses" },
-          { menu: menu.barbecue, name: "Barbecue" },
-          { menu: menu.dessert, name: "Desserts" },
-          { menu: menu.wineTasting, name: "Wine tasting" },
+          { menu: menu.appetizers, name: "Sicilian Food Experience" },
+          { menu: menu.firstCount, name: "Italian Food Experience" },
+          { menu: menu.secondCount, name: "World Food Experience" },
+          // { menu: menu.wineTasting, name: "Wine tasting" },
         ].map(({ menu, name }) => (
           <li>
             <button
