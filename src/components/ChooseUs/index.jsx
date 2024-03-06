@@ -1,9 +1,9 @@
-import * as React from "react";
-import "./index.scss";
-import { useRef } from "react";
-import { useOnScreen } from "../../hooks/useOnScreen";
 import { FaStar } from "@react-icons/all-files/fa/FaStar";
+import * as React from "react";
+import { useRef } from "react";
 import { useNav } from "../../hooks/useNav";
+import { useOnScreen } from "../../hooks/useOnScreen";
+import "./index.scss";
 
 const ChooseUs = ({
   allGooglePlacesReview,

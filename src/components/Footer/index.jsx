@@ -1,20 +1,21 @@
 import * as React from "react";
 import {
-  PHONE_NUMBER,
-  GOOGLE,
-  FACEBOOK,
-  WHATSAPP,
-  INSTAGRAM,
   EMAIL,
+  FACEBOOK,
+  GOOGLE,
+  INSTAGRAM,
+  PHONE_NUMBER,
+  WHATSAPP,
+  uppercaseCity,
 } from "../../resources/index";
 import "./index.scss";
 
+import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
+import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 import { FaGoogle } from "@react-icons/all-files/fa/FaGoogle";
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
-import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
-import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
-import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp";
 import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt";
+import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp";
 
 const Footer = () => (
   <div className="footer py-10">
@@ -42,7 +43,7 @@ const Footer = () => (
       </a>
     </div>
     <div className="footer__credits mt-10 pt-10">
-      <p>Private Chef Catania</p>
+      <p>Private Chef {uppercaseCity}</p>
       <p>P.Iva 05941450875</p>
       <p>Via duca degli abruzzi 163, 95030, S. G. La Punta CT</p>
       <a

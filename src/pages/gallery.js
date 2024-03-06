@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import { graphql } from "gatsby";
-import { NavProvider } from "../context/NavContext";
 import { FaWindowClose } from "@react-icons/all-files/fa/FaWindowClose";
+import { graphql } from "gatsby";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import "tailwindcss/tailwind.css";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import { NavProvider } from "../context/NavContext";
+import { CITY, uppercaseCity } from "../resources";
+import "../styles/colors.scss";
 import "./gallery.scss";
 import "./index.scss";
-import "tailwindcss/tailwind.css";
-import "../styles/colors.scss";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
-import { Helmet } from "react-helmet";
 
 // markup
 const GalleryPage = ({ data }) => {
@@ -22,22 +23,24 @@ const GalleryPage = ({ data }) => {
     <main className="main flex-wrap">
       <Helmet>
         <meta charSet="utf-8" />
-        <meta name="description" content="Private chef Catania gallery page" />
+        <meta
+          name="description"
+          content={`Private chef ${uppercaseCity} gallery page`}
+        />
         <meta
           name="keywords"
           content="cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
         />
-        <title>Gallery - Private Chef Catania</title>
+        <title>Gallery - Private Chef {uppercaseCity}</title>
       </Helmet>
       <GatsbySeo
-        title="Gallery - Private Chef Catania"
-        description="Some of the dishes prepared from Private Chef Catania for his guests"
-        canonical="https://privatechefcatania.com/gallery"
+        title={`Gallery - Private Chef ${uppercaseCity}`}
+        description={`Some of the dishes prepared from Private Chef ${uppercaseCity} for his guests`}
+        canonical={`https://privatechef${CITY}.com/gallery`}
         openGraph={{
-          url: "https://privatechefcatania.com/gallery",
-          title: "Gallery - Private Chef Catania",
-          description:
-            "Some of the dishes prepared from Private Chef Catania for his guests",
+          url: `https://privatechef${CITY}.com/gallery`,
+          title: `Gallery - Private Chef ${uppercaseCity}`,
+          description: `Some of the dishes prepared from Private Chef ${uppercaseCity} for his guests`,
           images: [
             {
               url: data.contentfulGallery.gallery_images[2].file.url,
@@ -48,7 +51,7 @@ const GalleryPage = ({ data }) => {
           ],
           locale: "en_GB",
           language: "en",
-          site_name: "Private Chef Catania",
+          site_name: `Private Chef ${uppercaseCity}`,
         }}
         twitter={{
           handle: "@handle",

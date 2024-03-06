@@ -1,14 +1,15 @@
-import React from "react";
 import { graphql } from "gatsby";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import React from "react";
+import { Helmet } from "react-helmet";
+import "tailwindcss/tailwind.css";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import { NavProvider } from "../context/NavContext";
+import { CITY, uppercaseCity } from "../resources";
+import "../styles/colors.scss";
 import "./gallery.scss";
 import "./index.scss";
-import "tailwindcss/tailwind.css";
-import "../styles/colors.scss";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
-import { Helmet } from "react-helmet";
 // markup
 const CookingClassPage = ({ data }) => {
   const {
@@ -26,15 +27,15 @@ const CookingClassPage = ({ data }) => {
           name="keywords"
           content="cooking class lessons chef teacher cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
         />
-        <title>Cooking Class - Private Chef Catania</title>
+        <title>Cooking Class - Private Chef {uppercaseCity}</title>
       </Helmet>
       <GatsbySeo
-        title="Cooking Class - Private Chef Catania"
+        title={`Cooking Class - Private Chef ${uppercaseCity}`}
         description="Cooking lessons from a high experienced chef. Learn to cook the most advanced gourmet dishes."
-        canonical="https://privatechefcatania.com/cooking_class"
+        canonical={`https://privatechef${CITY}.com/cooking_class`}
         openGraph={{
-          url: "https://privatechefcatania.com/cooking_class",
-          title: "Cooking Class - Private Chef Catania",
+          url: `https://privatechef${CITY}.com/cooking_class`,
+          title: `Cooking Class - Private Chef ${uppercaseCity}`,
           description:
             "Cooking lessons from a high experienced chef. Learn to cook the most advanced gourmet dishes.",
           images: [
@@ -47,7 +48,7 @@ const CookingClassPage = ({ data }) => {
           ],
           locale: "en_GB",
           language: "en",
-          site_name: "Private Chef Catania",
+          site_name: `Private Chef ${uppercaseCity}`,
         }}
         twitter={{
           handle: "@handle",

@@ -1,22 +1,23 @@
+import { graphql } from "gatsby";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import * as React from "react";
-import Heading from "../components/Heading";
+import { Helmet } from "react-helmet";
+import { helmetJsonLdProp } from "react-schemaorg";
+import "tailwindcss/tailwind.css";
+import basket from "../../public/images/basket.jpg";
+import battuta from "../../public/images/battuta.jpg";
+import pitrudda from "../../public/images/pitrudda.jpg";
+import About from "../components/About";
 import ChooseUs from "../components/ChooseUs";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
-import About from "../components/About";
-import { NavProvider } from "../context/NavContext";
-import { PHONE_NUMBER_CLEAN } from "../resources";
-import "./index.scss";
-import "tailwindcss/tailwind.css";
-import "../styles/colors.scss";
+import Heading from "../components/Heading";
 import Navbar from "../components/Navbar";
-import { graphql } from "gatsby";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
-import { Helmet } from "react-helmet";
-import { helmetJsonLdProp } from "react-schemaorg";
-import battuta from "../../public/images/battuta.jpg";
-import basket from "../../public/images/basket.jpg";
-import pitrudda from "../../public/images/pitrudda.jpg";
+import { NavProvider } from "../context/NavContext";
+import { CITY, PHONE_NUMBER_CLEAN, uppercaseCity } from "../resources";
+import "../styles/colors.scss";
+import "./index.scss";
+
 // markup
 const IndexPage = ({ data }) => {
   const reviewCount = data.allGooglePlacesReview.edges.length;
@@ -28,11 +29,11 @@ const IndexPage = ({ data }) => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     image: [basket, pitrudda, battuta],
-    name: "Private Chef Catania",
+    name: `Private Chef ${uppercaseCity}`,
     address: {
       "@type": "PostalAddress",
       addressRegion: "Sicily",
-      addressLocality: "Catania",
+      addressLocality: uppercaseCity,
       addressCountry: "Italy",
     },
     review: {
@@ -55,10 +56,10 @@ const IndexPage = ({ data }) => {
       reviewCount,
       bestRating: 5,
     },
-    url: "https://privatechefcatania.com",
+    url: `https://privatechef${CITY}.com`,
     telephone: PHONE_NUMBER_CLEAN,
     servesCuisine: "Sicilian, Gourmet, Italian, European",
-    menu: "https://privatechefcatania.com/menu",
+    menu: `https://privatechef${CITY}.com/menu`,
     acceptsReservations: "True",
   };
   const script = helmetJsonLdProp(snippet);
@@ -76,15 +77,17 @@ const IndexPage = ({ data }) => {
           name="keywords"
           content="food wine beverage experience taste chef cooking restaurant private cook homechef homerestaurant sommelier cousine kitchen quality seafood chefs foodporn food cheflife gourmet foodphotography foodie foodgasm italy foodlover cooking cucina foodies italianfood sicilianfood foodblog foodstyle kitchen cucinaitaliana fooditaly dinner foods cook restaurant culinary"
         />
-        <title>Private Chef Catania - Hire your personal chef in Sicily</title>
+        <title>
+          Private Chef {uppercaseCity} - Hire your personal chef in Sicily
+        </title>
       </Helmet>
       <GatsbySeo
-        title="Private Chef Catania - Hire your personal chef in Sicily"
+        title={`Private Chef ${uppercaseCity} - Hire your personal chef in Sicily`}
         description="Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home."
-        canonical="https://privatechefcatania.com"
+        canonical={`https://privatechef${CITY}.com`}
         openGraph={{
-          url: "https://privatechefcatania.com",
-          title: "Private Chef Catania - Hire your personal chef in Sicily",
+          url: `https://privatechef${CITY}.com`,
+          title: `Private Chef ${uppercaseCity} - Hire your personal chef in Sicily`,
           description:
             "Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home.",
           images: [
@@ -103,7 +106,7 @@ const IndexPage = ({ data }) => {
           ],
           locale: "en_GB",
           language: "en",
-          site_name: "Private Chef Catania",
+          site_name: `Private Chef ${uppercaseCity}`,
         }}
         twitter={{
           handle: "@handle",

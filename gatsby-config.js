@@ -2,10 +2,14 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const CITY = process.env.CITY;
+const uppercaseCity =
+  CITY?.charAt?.(0).toLocaleUpperCase() + CITY?.substring(1);
+
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://privatechefcatania.com",
-    title: "Private Chef Catania",
+    siteUrl: `https://privatechef${CITY}.com`,
+    title: `Private Chef ${uppercaseCity}`,
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -15,8 +19,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://privatechefcatania.com",
-        sitemap: "https://privatechefcatania.com/sitemap/sitemap-index.xml",
+        host: `https://privatechef${CITY}.com`,
+        sitemap: `https://privatechef${CITY}.com/sitemap/sitemap-index.xml`,
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
@@ -26,8 +30,8 @@ module.exports = {
         icon: "src/favicon/favicon.png",
         background_color: `#ed7568`,
         theme_color: `#ed7568`,
-        name: `Private Chef Catania`,
-        short_name: `Private Chef Catania`,
+        name: `Private Chef ${uppercaseCity}`,
+        short_name: `Private Chef ${uppercaseCity}`,
         description: `Your in home chef in Sicily. High quality food and beverage experiences. Wine tasting, Cooking class, catering. Try you restaurant at home.`,
         lang: `en`,
         display: `standalone`,

@@ -1,3 +1,8 @@
+export const CITY = process.env.CITY;
+export const uppercaseCity = CITY
+  ? CITY.charAt(0).toUpperCase() + CITY.substring(1)
+  : "";
+
 const menu = [
   {
     name: "Il Panaro",
@@ -46,4 +51,13 @@ const INSTAGRAM = "https://www.instagram.com/privatechefcatania/";
 const WHATSAPP = "https://wa.me/393276163861";
 const EMAIL = "mailto:s.privatechefcatania@gmail.com";
 
-export { PHONE_NUMBER, GOOGLE, FACEBOOK, INSTAGRAM, WHATSAPP, EMAIL, menu, PHONE_NUMBER_CLEAN };
+export {
+  EMAIL,
+  FACEBOOK,
+  GOOGLE,
+  INSTAGRAM,
+  PHONE_NUMBER,
+  PHONE_NUMBER_CLEAN,
+  WHATSAPP,
+  menu,
+};
