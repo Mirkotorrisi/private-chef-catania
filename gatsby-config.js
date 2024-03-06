@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const CITY = process.env.CITY;
+const CITY = process.env.GATSBY_CITY;
 const uppercaseCity =
   CITY?.charAt?.(0).toLocaleUpperCase() + CITY?.substring(1);
 

@@ -1,4 +1,4 @@
-export const CITY = process.env.CITY;
+export const CITY = process.env.GATSBY_CITY;
 export const uppercaseCity = CITY
   ? CITY.charAt(0).toUpperCase() + CITY.substring(1)
   : "";
