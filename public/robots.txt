@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://privatechefcatania.com/sitemap/sitemap-index.xml
-Host: https://privatechefcatania.com
+Sitemap: https://privatechefpalermo.com/sitemap/sitemap-index.xml
+Host: https://privatechefpalermo.com
