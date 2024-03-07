@@ -1,14 +1,14 @@
 import React from "react";
 import { NavContext } from "../../context/NavContext";
 import { CITY } from "../../resources";
+import BlackLogoCT from "../../static/svg/logo_black_ct.svg";
+import BlackLogoPA from "../../static/svg/logo_black_pa.svg";
+import ColoredLogoCT from "../../static/svg/logo_color_ct.svg";
+import ColoredLogoPA from "../../static/svg/logo_color_pa.svg";
+import LogotipoCT from "../../static/svg/logotipo_ct.svg";
+import LogotipoPA from "../../static/svg/logotipo_pa.svg";
 import NavLink from "./NavLink";
 import "./index.scss";
-import BlackLogoCT from "/public/static/svg/logo_black_ct.svg";
-import BlackLogoPA from "/public/static/svg/logo_black_pa.svg";
-import ColoredLogoCT from "/public/static/svg/logo_color_ct.svg";
-import ColoredLogoPA from "/public/static/svg/logo_color_pa.svg";
-import LogotipoCT from "/public/static/svg/logotipo_ct.svg";
-import LogotipoPA from "/public/static/svg/logotipo_pa.svg";
 
 const Navbar = ({ customActiveLink }) => {
   const [menuShow, setMenu] = React.useState(false);

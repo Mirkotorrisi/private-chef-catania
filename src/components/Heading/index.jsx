@@ -1,8 +1,7 @@
 import * as React from "react";
-import "./index.scss";
 import { useNav } from "../../hooks/useNav";
-import videoFusione from "../../../public/images/videofusione2.mp4";
-
+import videoFusione from "../../static/videofusione2.mp4";
+import "./index.scss";
 const Heading = () => {
   const ref = useNav("/#home");
 
