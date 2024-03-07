@@ -1,10 +1,14 @@
 import React from "react";
-import "./index.scss";
-import NavLink from "./NavLink";
-import Logo from "/public/static/svg/logo_black_1.svg";
-import ColoredLogo from "/public/static/svg/logo_color_bg_1.svg";
-import Logotipo from "/public/static/svg/logotipo.svg";
 import { NavContext } from "../../context/NavContext";
+import { CITY } from "../../resources";
+import NavLink from "./NavLink";
+import "./index.scss";
+import BlackLogoCT from "/public/static/svg/logo_black_ct.svg";
+import BlackLogoPA from "/public/static/svg/logo_black_pa.svg";
+import ColoredLogoCT from "/public/static/svg/logo_color_ct.svg";
+import ColoredLogoPA from "/public/static/svg/logo_color_pa.svg";
+import LogotipoCT from "/public/static/svg/logotipo_ct.svg";
+import LogotipoPA from "/public/static/svg/logotipo_pa.svg";
 
 const Navbar = ({ customActiveLink }) => {
   const [menuShow, setMenu] = React.useState(false);
@@ -13,6 +17,10 @@ const Navbar = ({ customActiveLink }) => {
   const { activeNavLinkId } = React.useContext(NavContext);
   const shouldHaveBg =
     activeNavLinkId !== "/#home" && customActiveLink !== "menu";
+
+  const BlackLogo = CITY === "palermo" ? BlackLogoPA : BlackLogoCT;
+  const ColoredLogo = CITY === "palermo" ? ColoredLogoPA : ColoredLogoCT;
+  const Logotipo = CITY === "palermo" ? LogotipoPA : LogotipoCT;
   return (
     <nav
       className={`navbar flex fixed items-center justify-between flex-wrap w-screen px-10 ${
@@ -30,7 +38,10 @@ const Navbar = ({ customActiveLink }) => {
               alt="logo"
             />
           ) : (
-            <Logo className="navbar__logo hidden lg:inline-block" alt="logo" />
+            <BlackLogo
+              className="navbar__logo hidden lg:inline-block"
+              alt="logo"
+            />
           )}{" "}
           <Logotipo className="navbar__logo--small lg:hidden" alt="logo" />
         </NavLink>
