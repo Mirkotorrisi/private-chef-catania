@@ -1,15 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
-import "./index.scss";
-import { useNav } from "../../hooks/useNav";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import { FaUser } from "@react-icons/all-files/fa/FaUser";
-import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
-import { FaPhone } from "@react-icons/all-files/fa/FaPhone";
-import { FaPencilAlt } from "@react-icons/all-files/fa/FaPencilAlt";
 import { FaCalendarDay } from "@react-icons/all-files/fa/FaCalendarDay";
+import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
+import { FaPencilAlt } from "@react-icons/all-files/fa/FaPencilAlt";
+import { FaPhone } from "@react-icons/all-files/fa/FaPhone";
+import { FaUser } from "@react-icons/all-files/fa/FaUser";
 import { MdLocationOn } from "@react-icons/all-files/md/MdLocationOn";
 import axios from "axios";
-
+import React, { useEffect, useRef, useState } from "react";
+import { useNav } from "../../hooks/useNav";
+import { useOnScreen } from "../../hooks/useOnScreen";
+import { CITY } from "../../resources";
+import "./index.scss";
 const LOADING = "LOADING";
 const SUCCESS = "SUCCESS";
 const ERROR = "ERROR";
@@ -56,7 +56,10 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStep(LOADING);
-    const res = await axios.post(href, form);
+    const res = await axios.post(href, {
+      ...form,
+      platform: CITY,
+    });
     if (res) setStep("SUCCESS");
   };
   const hasErrors = Object.values(errors).some((error) => !!error);
