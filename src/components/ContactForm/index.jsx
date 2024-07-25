@@ -224,13 +224,6 @@ const ContactForm = () => {
               privacy policy
             </a>
           </i>
-          <div className="w-full h-20 flex items-center justify-center animate-pulse">
-            <div className="px-4 py-2 rounded-sm bg-red-300">
-              <h2 className="text-3xl text-whte font-bold">
-                20% off on August and September reservations
-              </h2>
-            </div>
-          </div>
         </form>
         {step === SUCCESS && (
           <h2 className="thanks animation_in mt-2">
